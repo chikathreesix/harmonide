@@ -2,6 +2,7 @@
 @import "compass/css3/box";
 @import "compass/css3/box-sizing";
 @import "compass/css3/text-shadow";
+@import "compass/css3/transform";
 
 html, body{
   width: 100%;
@@ -11,7 +12,11 @@ html, body{
 }
 
 .slide_container{
-  @include display-box;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   overflow: hidden;
 
   section{
@@ -21,7 +26,20 @@ html, body{
     color: white;
     padding: 15px;
     text-align: center;
+    position: absolute;
     @include box-sizing(border-box);
+
+    &.prev{
+      @include transform(translateX(-100%));
+    }
+
+    &.curr{
+      @include transform(translateX(0));
+    }
+
+    &.next{
+      @include transform(translateX(100%));
+    }
 
     h1{
       font-size: 48px;

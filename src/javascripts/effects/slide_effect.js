@@ -1,5 +1,7 @@
 export class SlideEffect{
-  constructor(){
+  constructor(container){
+    this._container = container;
+    this._container.style.transition = 'transform 0.5s';
   }
 
   next(currPage, nextPage){

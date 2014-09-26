@@ -1,4 +1,5 @@
 import { URLHandler } from './url_handler';
+import { Page } from './page';
 
 export class Presentation{
   constructor(container, options){
@@ -7,18 +8,18 @@ export class Presentation{
     this._pages = [];
     this._urlHandler = URLHandler.getInstance();
 
-    this._pages = this._getPages();
+    this._setPages(this._urlHandler.currentIndex);
     this._setEvents();
   }
 
-  _getPages(){
-    var pageElems = this._container.getElementsByTagName('section'),
-        pages = [];
+  _setPages(index){
+    var pageElems = this._container.getElementsByTagName('section');
 
     for(let i = 0, len = pageElems.length; i < len; i++){
-      pages.push(new Page(pageElems[i]));
+      let page = new Page(pageElems[i]);
+      page.state = (i === index) ? 0 : (i < index) ? -1 : 1;
+      this._pages.push(page);
     }
-    return pages;
   }
 
   _setEvents(){
@@ -28,7 +29,6 @@ export class Presentation{
 
   _onKeyDown(event){
     let code = event.keyCode;
-    console.log(code);
 
 		switch(code){
 			//Enter
@@ -52,11 +52,13 @@ export class Presentation{
     var currentPage = this._pages[this._currentIndex],
         nextPage = this._pages[page];
 
-    if(this._currentIndex > page){
+    if(this._currentIndex < page){
       currentPage.next(nextPage);
     }else{
       currentPage.prev(nextPage);
     }
+
+    this._currentIndex = page;
   }
 
   nextPage(){
@@ -65,7 +67,7 @@ export class Presentation{
   }
 
   prevPage(){
-    if(this._currentIndex < 0) return;
+    if(this._currentIndex <= 0) return;
     this.moveTo(this._currentIndex - 1);
   }
 }

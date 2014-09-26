@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 6, ../src/stylesheets/main.scss */
+/* line 7, ../src/stylesheets/main.scss */
 html, body {
   width: 100%;
   height: 100%;
@@ -71,15 +71,16 @@ html, body {
   background-color: black;
 }
 
-/* line 13, ../src/stylesheets/main.scss */
+/* line 14, ../src/stylesheets/main.scss */
 .slide_container {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
-  display: box;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   overflow: hidden;
 }
-/* line 17, ../src/stylesheets/main.scss */
+/* line 22, ../src/stylesheets/main.scss */
 .slide_container section {
   width: 100%;
   height: 100%;
@@ -87,11 +88,36 @@ html, body {
   color: white;
   padding: 15px;
   text-align: center;
+  position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 26, ../src/stylesheets/main.scss */
+/* line 32, ../src/stylesheets/main.scss */
+.slide_container section.prev {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+/* line 36, ../src/stylesheets/main.scss */
+.slide_container section.curr {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+/* line 40, ../src/stylesheets/main.scss */
+.slide_container section.next {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+/* line 44, ../src/stylesheets/main.scss */
 .slide_container section h1 {
   font-size: 48px;
   margin-bottom: 15px;

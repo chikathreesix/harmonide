@@ -14,4 +14,8 @@ class URLHandlerInner extends Dispatcher{
     var match = location.href.match(/#([0-9]+)$/);
 		var pageNum = (match) ? parseInt(match[1], 10) - 1 : 0;
   }
+
+  get currentIndex(){
+    return 0;
+  }
 }
