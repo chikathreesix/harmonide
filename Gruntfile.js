@@ -29,6 +29,13 @@ module.exports = function(grunt){
         options: {
           spawn: false,
         }
+      },
+      md: {
+        files: ['drafts/*.md', 'src/index.html.ejs'],
+        task: ['parse'],
+        options: {
+          spawn: false
+        }
       }
     },
     sass: {
@@ -62,5 +69,30 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('default', ['shell:traceur', 'sass']);
+  grunt.registerTask('default', ['shell:traceur', 'compass']);
+
+  grunt.registerTask('parse', function(){
+    var fs = require('fs'),
+        ejs = require('ejs'),
+        marked = require('marked'),
+        dir = 'drafts',
+        files = fs.readdirSync(dir);
+
+    files.forEach(function(file){
+      if(!file.match(/\.md$/)){
+        return;
+      }
+
+      var data = fs.readFileSync(dir + '/' + file, 'utf8'),
+          fileName = file.replace('.md', ''),
+          template = fs.readFileSync('src/index.html.ejs', 'utf8'),
+          slides = [];
+
+      data.split(/-{5,}/).forEach(function(pageData){
+        slides.push(marked(pageData));
+      });
+
+      fs.writeFileSync('build/' + fileName + '.html', ejs.render(template, {slides: slides}));
+    });
+  });
 }
