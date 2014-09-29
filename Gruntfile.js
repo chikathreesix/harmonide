@@ -32,7 +32,7 @@ module.exports = function(grunt){
       },
       md: {
         files: ['drafts/*.md', 'src/index.html.ejs'],
-        task: ['parse'],
+        tasks: ['parse'],
         options: {
           spawn: false
         }
@@ -73,10 +73,18 @@ module.exports = function(grunt){
 
   grunt.registerTask('parse', function(){
     var fs = require('fs'),
+        hljs = require('highlight.js'),
         ejs = require('ejs'),
         marked = require('marked'),
         dir = 'drafts',
-        files = fs.readdirSync(dir);
+        files = fs.readdirSync(dir),
+        renderer = new marked.Renderer();
+
+    renderer.code = function(code, language){
+      return '<pre><code class="hljs ' + language + '">' + 
+              hljs.highlight(language, code).value +
+              '</code></pre>';
+    }
 
     files.forEach(function(file){
       if(!file.match(/\.md$/)){
@@ -89,7 +97,7 @@ module.exports = function(grunt){
           slides = [];
 
       data.split(/-{5,}/).forEach(function(pageData){
-        slides.push(marked(pageData));
+        slides.push(marked(pageData, { renderer: renderer }));
       });
 
       fs.writeFileSync('build/' + fileName + '.html', ejs.render(template, {slides: slides}));
