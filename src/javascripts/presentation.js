@@ -10,6 +10,7 @@ export class Presentation{
 
     this._setPages(this._urlHandler.currentIndex);
     this._setEvents();
+    this._onResize();
   }
 
   _setPages(index){
@@ -25,6 +26,13 @@ export class Presentation{
   _setEvents(){
     this._urlHandler.on('change', this._onChangeURL.bind(this));
     window.addEventListener('keydown', this._onKeyDown.bind(this), false);
+    window.addEventListener('resize', this._onResize.bind(this), false);
+  }
+
+  _onResize(event){
+    this._pages.forEach((page) => {
+      page.resize(window.innerWidth, window.innerHeight);
+    });
   }
 
   _onKeyDown(event){

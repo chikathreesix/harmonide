@@ -67,7 +67,10 @@ System.register("../src/javascripts/page", [], function() {
   var Dom = System.get("../src/javascripts/util").Dom;
   var Page = function Page(container, options) {
     this._container = container;
+    this._content = container.querySelector('.slide_content');
     this._state = 0;
+    this._originWidth = this._content.offsetWidth;
+    this._originHeight = this._content.offsetHeight;
     if (options && options.effect) {
       this._effect = options.effect;
     } else {
@@ -90,6 +93,12 @@ System.register("../src/javascripts/page", [], function() {
         case 1:
           return 'next';
       }
+    },
+    resize: function(width, height) {
+      var widthRatio = width / this._originWidth;
+      var heightRatio = height / this._originHeight;
+      var ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;
+      this._content.style.zoom = ratio;
     },
     next: function(page) {
       this._effect.next(this, page);
@@ -181,6 +190,7 @@ System.register("../src/javascripts/presentation", [], function() {
     this._urlHandler = URLHandler.getInstance();
     this._setPages(this._urlHandler.currentIndex);
     this._setEvents();
+    this._onResize();
   };
   ($traceurRuntime.createClass)(Presentation, {
     _setPages: function(index) {
@@ -196,6 +206,12 @@ System.register("../src/javascripts/presentation", [], function() {
     _setEvents: function() {
       this._urlHandler.on('change', this._onChangeURL.bind(this));
       window.addEventListener('keydown', this._onKeyDown.bind(this), false);
+      window.addEventListener('resize', this._onResize.bind(this), false);
+    },
+    _onResize: function(event) {
+      this._pages.forEach((function(page) {
+        page.resize(window.innerWidth, window.innerHeight);
+      }));
     },
     _onKeyDown: function(event) {
       var code = event.keyCode;

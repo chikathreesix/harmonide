@@ -69,7 +69,7 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('default', ['shell:traceur', 'compass']);
+  grunt.registerTask('default', ['shell:traceur', 'compass', 'parse']);
 
   grunt.registerTask('parse', function(){
     var fs = require('fs'),
@@ -97,7 +97,9 @@ module.exports = function(grunt){
           slides = [];
 
       data.split(/-{5,}/).forEach(function(pageData){
-        slides.push(marked(pageData, { renderer: renderer }));
+        slides.push({
+          content: marked(pageData, { renderer: renderer })
+        });
       });
 
       fs.writeFileSync('build/' + fileName + '.html', ejs.render(template, {slides: slides}));

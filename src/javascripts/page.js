@@ -4,7 +4,11 @@ import { Dom } from './util';
 export class Page{
   constructor(container, options){
     this._container = container;
+    this._content = container.querySelector('.slide_content');
     this._state = 0;
+
+    this._originWidth = this._content.offsetWidth;
+    this._originHeight = this._content.offsetHeight;
 
     if(options && options.effect){
       this._effect = options.effect;
@@ -30,6 +34,14 @@ export class Page{
       case 1:
         return 'next';
     }
+  }
+
+  resize(width, height){
+    let widthRatio = width / this._originWidth;
+    let heightRatio = height / this._originHeight;
+    let ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;
+
+    this._content.style.zoom = ratio;
   }
 
   next(page){

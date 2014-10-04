@@ -11,6 +11,7 @@
 html, body{
   width: 100%;
   height: 100%;
+  line-height: 1.5em;
   font-family: "Oswald",Helvetica,sans-serif;
   background-color: black;
 }
@@ -28,10 +29,7 @@ html, body{
     height: 100%;
     background-color: #969DA6;
     color: white;
-    padding: 20px;
-    text-align: center;
     position: absolute;
-    @include box-sizing(border-box);
 
     &.prev{
       @include transform(translateX(-100%));
@@ -43,6 +41,15 @@ html, body{
 
     &.next{
       @include transform(translateX(100%));
+    }
+
+    .slide_content{
+      width: 640px;
+      height: 480px;
+      padding: 20px;
+      text-align: center;
+      margin: 0 auto;
+      @include box-sizing(border-box);
     }
 
     h1{
