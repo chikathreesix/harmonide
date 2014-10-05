@@ -46,17 +46,27 @@ html, body{
     .slide_content{
       width: 640px;
       height: 480px;
-      padding: 20px;
-      text-align: center;
+      padding: 30px 20px;
       margin: 0 auto;
+      line-height: 1.5em;
+      font-size: 24px;
       @include box-sizing(border-box);
     }
 
     h1{
       font-size: 48px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       letter-spacing: 0.02em;
+      text-align: center;
       @include text-shadow(0px 0px 6px rgba(0,0,0,0.2));
+    }
+
+    ul{
+      list-style-type: disc;
+
+      li{
+        margin-bottom: 20px;
+      }
     }
 
     pre{
@@ -64,6 +74,7 @@ html, body{
       line-height: 1.5em;
       width: 300px;
       margin: 0 auto;
+      font-size: 18px;
 
       code{
         text-align: left;

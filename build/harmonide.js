@@ -254,9 +254,9 @@ System.register("../src/javascripts/presentation", [], function() {
       return Presentation;
     }};
 });
-System.register("../src/javascripts/main", [], function() {
+System.register("../src/javascripts/harmonide", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/main";
+  var __moduleName = "../src/javascripts/harmonide";
   var Presentation = System.get("../src/javascripts/presentation").Presentation;
   window.addEventListener('DOMContentLoaded', (function(event) {
     var container = document.getElementById('presentation'),
@@ -264,4 +264,4 @@ System.register("../src/javascripts/main", [], function() {
   }));
   return {};
 });
-System.get("../src/javascripts/main" + '');
+System.get("../src/javascripts/harmonide" + '');
