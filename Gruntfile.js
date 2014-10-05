@@ -70,39 +70,5 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('default', ['shell:traceur', 'compass', 'parse']);
-
-  grunt.registerTask('parse', function(){
-    var fs = require('fs'),
-        hljs = require('highlight.js'),
-        ejs = require('ejs'),
-        marked = require('marked'),
-        dir = 'drafts',
-        files = fs.readdirSync(dir),
-        renderer = new marked.Renderer();
-
-    renderer.code = function(code, language){
-      return '<pre><code class="hljs ' + language + '">' + 
-              hljs.highlight(language, code).value +
-              '</code></pre>';
-    }
-
-    files.forEach(function(file){
-      if(!file.match(/\.md$/)){
-        return;
-      }
-
-      var data = fs.readFileSync(dir + '/' + file, 'utf8'),
-          fileName = file.replace('.md', ''),
-          template = fs.readFileSync('src/index.html.ejs', 'utf8'),
-          slides = [];
-
-      data.split(/-{5,}/).forEach(function(pageData){
-        slides.push({
-          content: marked(pageData, { renderer: renderer })
-        });
-      });
-
-      fs.writeFileSync('build/' + fileName + '.html', ejs.render(template, {slides: slides}));
-    });
-  });
+  grunt.loadTasks('tasks');
 }
