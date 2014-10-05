@@ -29,8 +29,10 @@ FileParser.prototype = {
 
     var dataArr = this._data.split(/\-{5,}\n[^-]*\-{5,}\n\n/);
     dataArr.shift();
-    dataArr.forEach(function(pageData){
+    dataArr.forEach(function(pageData, index){
+      var option = this._pageOptions[index];
       this._slides.push({
+        style: this.getStyle(option),
         content: marked(pageData, { renderer: renderer })
       });
     }.bind(this));
@@ -73,13 +75,23 @@ FileParser.prototype = {
     var regex = /\-{5,}\n([^-]*)\-{5,}\n\n/g;
     var match;
     var options = [];
+    var index = 0;
     while(match = regex.exec(this._data)){
-      match[0].replace(/\-{5,}\n/g,'').split('\n').forEach(function(optionStr){
-        options.push(this.parseOption(optionStr));
-      }.bind(this));
+      var optionStr = match[0].replace(/\-{5,}\n/g,'');
+      options.push(this.parseOption(optionStr));
     }
 
     return options;
+  },
+
+  getStyle: function(option){
+    var style = '';
+    for(var prop in option){
+      if(prop == 'backgroundColor'){
+        style += 'background-color:' + option[prop] + ';';
+      }
+    }
+    return style;
   }
 };
 

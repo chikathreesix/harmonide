@@ -9,7 +9,7 @@
 <body>
   <div id="presentation" class="slide_container">
     <% slides.forEach(function(slide){ %>
-      <section>
+      <section style="<%= slide.style %>">
         <div class="slide_content">
           <%- slide.content %>
         </div>
