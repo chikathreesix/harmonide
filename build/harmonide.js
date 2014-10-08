@@ -168,12 +168,19 @@ System.register("../src/javascripts/url_handler", [], function() {
   var URLHandlerInner = function URLHandlerInner() {
     $traceurRuntime.superCall(this, $URLHandlerInner.prototype, "constructor", []);
     var match = location.href.match(/#([0-9]+)$/);
-    var pageNum = (match) ? parseInt(match[1], 10) - 1 : 0;
+    this._pageNum = (match) ? parseInt(match[1], 10) - 1 : 0;
   };
   var $URLHandlerInner = URLHandlerInner;
-  ($traceurRuntime.createClass)(URLHandlerInner, {get currentIndex() {
-      return 0;
-    }}, {}, Dispatcher);
+  ($traceurRuntime.createClass)(URLHandlerInner, {
+    get pageIndex() {
+      return this._pageNum;
+    },
+    set pageIndex(index) {
+      this._pageNum = index;
+      var url = location.href.replace(/#[0-9]+$/, '');
+      location.href = url + '#' + String(index + 1);
+    }
+  }, {}, Dispatcher);
   return {get URLHandler() {
       return URLHandler;
     }};
@@ -185,10 +192,9 @@ System.register("../src/javascripts/presentation", [], function() {
   var Page = System.get("../src/javascripts/page").Page;
   var Presentation = function Presentation(container, options) {
     this._container = container;
-    this._currentIndex = 0;
     this._pages = [];
     this._urlHandler = URLHandler.getInstance();
-    this._setPages(this._urlHandler.currentIndex);
+    this._setPages(this._urlHandler.pageIndex);
     this._setEvents();
     this._onResize();
   };
@@ -231,24 +237,27 @@ System.register("../src/javascripts/presentation", [], function() {
     },
     moveTo: function() {
       var page = arguments[0] !== (void 0) ? arguments[0] : 0;
-      var currentPage = this._pages[$traceurRuntime.toProperty(this._currentIndex)],
-          nextPage = this._pages[$traceurRuntime.toProperty(page)];
-      if (this._currentIndex < page) {
+      var currentIndex = this._urlHandler.pageIndex;
+      var currentPage = this._pages[$traceurRuntime.toProperty(currentIndex)];
+      var nextPage = this._pages[$traceurRuntime.toProperty(page)];
+      if (currentIndex < page) {
         currentPage.next(nextPage);
       } else {
         currentPage.prev(nextPage);
       }
-      this._currentIndex = page;
+      this._urlHandler.pageIndex = page;
     },
     nextPage: function() {
-      if (this._currentIndex >= this._pages.length - 1)
+      var currentIndex = this._urlHandler.pageIndex;
+      if (currentIndex >= this._pages.length - 1)
         return;
-      this.moveTo(this._currentIndex + 1);
+      this.moveTo(currentIndex + 1);
     },
     prevPage: function() {
-      if (this._currentIndex <= 0)
+      var currentIndex = this._urlHandler.pageIndex;
+      if (currentIndex <= 0)
         return;
-      this.moveTo(this._currentIndex - 1);
+      this.moveTo(currentIndex - 1);
     }
   }, {});
   return {get Presentation() {

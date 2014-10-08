@@ -12,10 +12,16 @@ class URLHandlerInner extends Dispatcher{
   constructor(){
     super();
     var match = location.href.match(/#([0-9]+)$/);
-		var pageNum = (match) ? parseInt(match[1], 10) - 1 : 0;
+		this._pageNum = (match) ? parseInt(match[1], 10) - 1 : 0;
   }
 
-  get currentIndex(){
-    return 0;
+  get pageIndex(){
+    return this._pageNum;
+  }
+
+  set pageIndex(index){
+    this._pageNum = index;
+    let url = location.href.replace(/#[0-9]+$/, '');
+		location.href = url + '#' + String(index + 1);
   }
 }

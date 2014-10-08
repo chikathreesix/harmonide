@@ -4,11 +4,10 @@ import { Page } from './page';
 export class Presentation{
   constructor(container, options){
     this._container = container;
-    this._currentIndex = 0;
     this._pages = [];
     this._urlHandler = URLHandler.getInstance();
 
-    this._setPages(this._urlHandler.currentIndex);
+    this._setPages(this._urlHandler.pageIndex);
     this._setEvents();
     this._onResize();
   }
@@ -57,25 +56,30 @@ export class Presentation{
   }
 
   moveTo(page = 0){
-    var currentPage = this._pages[this._currentIndex],
-        nextPage = this._pages[page];
+    let currentIndex = this._urlHandler.pageIndex;
+    let currentPage = this._pages[currentIndex];
+    let nextPage = this._pages[page];
 
-    if(this._currentIndex < page){
+    if(currentIndex < page){
       currentPage.next(nextPage);
     }else{
       currentPage.prev(nextPage);
     }
 
-    this._currentIndex = page;
+    this._urlHandler.pageIndex = page;
   }
 
   nextPage(){
-    if(this._currentIndex >= this._pages.length - 1) return;
-    this.moveTo(this._currentIndex + 1);
+    let currentIndex = this._urlHandler.pageIndex;
+
+    if(currentIndex >= this._pages.length - 1) return;
+    this.moveTo(currentIndex + 1);
   }
 
   prevPage(){
-    if(this._currentIndex <= 0) return;
-    this.moveTo(this._currentIndex - 1);
+    let currentIndex = this._urlHandler.pageIndex;
+    
+    if(currentIndex <= 0) return;
+    this.moveTo(currentIndex - 1);
   }
 }
