@@ -140,13 +140,14 @@ html, body {
 }
 /* line 64, ../src/stylesheets/harmonide.scss */
 .slide_container section ul {
+  padding-left: 40px;
   list-style-type: disc;
 }
-/* line 67, ../src/stylesheets/harmonide.scss */
+/* line 68, ../src/stylesheets/harmonide.scss */
 .slide_container section ul li {
   margin-bottom: 20px;
 }
-/* line 72, ../src/stylesheets/harmonide.scss */
+/* line 73, ../src/stylesheets/harmonide.scss */
 .slide_container section .exe-container {
   font-family: monospace;
   line-height: 1.5em;
