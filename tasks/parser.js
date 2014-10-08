@@ -6,9 +6,7 @@ var renderer = new marked.Renderer();
 var dir = 'drafts';
 
 renderer.code = function(code, language){
-  return '<pre><code class="hljs ' + language + '">' + 
-          hljs.highlight(language, code).value +
-          '</code></pre>';
+  return '<pre><code class="hljs ' + language + ' exe" data-language="' + language + '">' + code + '</code></pre>';
 }
 
 function FileParser(){

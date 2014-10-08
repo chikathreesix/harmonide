@@ -1,10 +1,11 @@
 <!DOCTYPE>
 <html>
 <head>
+  <link rel="stylesheet" href="harmonide.css">
+  <link rel="stylesheet" href="exe.css">
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/default.min.css">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
-  <link rel="stylesheet" href="harmonide.css">
 </head>
 <body>
   <div id="presentation" class="slide_container">
@@ -18,5 +19,14 @@
   </div>
   <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
   <script src="harmonide.js"></script>
+  <script src="exe.js"></script>
+  <script>
+    exe.init(function(){
+      var codeElems = document.querySelectorAll('pre code');
+      for(var i = 0, len = codeElems.length; i < len; i++){
+        hljs.highlightBlock(codeElems[i]);
+      }
+    });
+  </script>
 </body>
 </html>

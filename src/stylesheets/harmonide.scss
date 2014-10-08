@@ -69,16 +69,12 @@ html, body{
       }
     }
 
-    pre{
+    .exe-container{
       font-family: monospace;
       line-height: 1.5em;
       width: 300px;
       margin: 0 auto;
       font-size: 18px;
-
-      code{
-        text-align: left;
-      }
     }
   }
 }

@@ -2,7 +2,10 @@ module.exports = function(grunt){
   grunt.initConfig({
     shell: {
       traceur: {
-        command: 'traceur --experimental --out build/harmonide.js src/javascripts/harmonide.js'
+        command: [
+          'traceur --experimental --out build/harmonide.js src/javascripts/harmonide.js',
+          'traceur --experimental --out build/exe.js src/javascripts/exe.js'
+        ].join('&&')
       },
       traceur_test:{
         command: 'traceur --experimental --out test/build/util.js test/src/util.js'
