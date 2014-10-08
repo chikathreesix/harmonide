@@ -17,8 +17,8 @@ export class Presentation{
     var pageElems = this._container.getElementsByTagName('section');
 
     for(let i = 0, len = pageElems.length; i < len; i++){
-      let page = new Page(pageElems[i]);
-      page.state = (i === index) ? 0 : (i < index) ? -1 : 1;
+      let state = (i === index) ? 0 : (i < index) ? -1 : 1;
+      let page = new Page(pageElems[i], state);
       this._pages.push(page);
     }
   }

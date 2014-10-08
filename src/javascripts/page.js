@@ -2,10 +2,10 @@ import { SlideEffect } from './effects/slide_effect';
 import { Dom } from './util';
 
 export class Page{
-  constructor(container, options){
+  constructor(container, state, options){
     this._container = container;
     this._content = container.querySelector('.slide_content');
-    this._state = 0;
+    this.state = state;
 
     this._originWidth = this._content.offsetWidth;
     this._originHeight = this._content.offsetHeight;
@@ -16,7 +16,7 @@ export class Page{
       this._effect = new SlideEffect(this._container);
     }
 
-    this._container.className += this._effect.className;
+    Dom(this._container).addClass(this._effect.className);
   }
 
   set state(state){

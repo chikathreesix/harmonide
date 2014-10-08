@@ -65,10 +65,10 @@ System.register("../src/javascripts/page", [], function() {
   var __moduleName = "../src/javascripts/page";
   var SlideEffect = System.get("../src/javascripts/effects/slide_effect").SlideEffect;
   var Dom = System.get("../src/javascripts/util").Dom;
-  var Page = function Page(container, options) {
+  var Page = function Page(container, state, options) {
     this._container = container;
     this._content = container.querySelector('.slide_content');
-    this._state = 0;
+    this.state = state;
     this._originWidth = this._content.offsetWidth;
     this._originHeight = this._content.offsetHeight;
     if (options && options.effect) {
@@ -76,7 +76,7 @@ System.register("../src/javascripts/page", [], function() {
     } else {
       this._effect = new SlideEffect(this._container);
     }
-    this._container.className += this._effect.className;
+    Dom(this._container).addClass(this._effect.className);
   };
   ($traceurRuntime.createClass)(Page, {
     set state(state) {
@@ -194,13 +194,14 @@ System.register("../src/javascripts/presentation", [], function() {
   };
   ($traceurRuntime.createClass)(Presentation, {
     _setPages: function(index) {
-      var page$__19;
+      var state$__19;
+      var page$__20;
       var pageElems = this._container.getElementsByTagName('section');
       for (var i$__17 = 0,
           len$__18 = pageElems.length; i$__17 < len$__18; i$__17++) {
-        page$__19 = new Page(pageElems[$traceurRuntime.toProperty(i$__17)]);
-        page$__19.state = (i$__17 === index) ? 0 : (i$__17 < index) ? -1 : 1;
-        this._pages.push(page$__19);
+        state$__19 = (i$__17 === index) ? 0 : (i$__17 < index) ? -1 : 1;
+        page$__20 = new Page(pageElems[$traceurRuntime.toProperty(i$__17)], state$__19);
+        this._pages.push(page$__20);
       }
     },
     _setEvents: function() {
