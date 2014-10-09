@@ -67,7 +67,7 @@ System.register("../src/javascripts/page", [], function() {
   var Dom = System.get("../src/javascripts/util").Dom;
   var Page = function Page(container, state, options) {
     this._container = container;
-    this._content = container.querySelector('.slide_content');
+    this._content = container.querySelector('.slide');
     this.state = state;
     this._originWidth = this._content.offsetWidth;
     this._originHeight = this._content.offsetHeight;
@@ -197,6 +197,7 @@ System.register("../src/javascripts/presentation", [], function() {
     this._setPages(this._urlHandler.pageIndex);
     this._setEvents();
     this._onResize();
+    this._container.style.visibility = 'visible';
   };
   ($traceurRuntime.createClass)(Presentation, {
     _setPages: function(index) {

@@ -3,6 +3,7 @@
 @import "compass/css3/box-sizing";
 @import "compass/css3/text-shadow";
 @import "compass/css3/transform";
+@import "compass/css3/box";
 
 @font-face {
   font-family: Chunkfive; src: url('Chunkfive.otf');
@@ -23,6 +24,7 @@ html, body{
   left: 0;
   right: 0;
   overflow: hidden;
+  visibility: hidden;
 
   section{
     width: 100%;
@@ -43,7 +45,21 @@ html, body{
       @include transform(translateX(100%));
     }
 
-    .slide_content{
+    &.align-middle{
+      .slide_content{
+        top: 50%;
+        @include transform(translateY(-50%));
+      }
+    }
+
+    &.align-bottom{
+      .slide_content{
+        top: 100%;
+        @include transform(translateY(-100%));
+      }
+    }
+
+    .slide{
       width: 640px;
       height: 480px;
       padding: 30px 20px;
@@ -51,6 +67,11 @@ html, body{
       line-height: 1.5em;
       font-size: 24px;
       @include box-sizing(border-box);
+
+      .slide_content{
+        position: relative;
+        width: 100%;
+      }
     }
 
     h1{

@@ -10,6 +10,8 @@ export class Presentation{
     this._setPages(this._urlHandler.pageIndex);
     this._setEvents();
     this._onResize();
+
+    this._container.style.visibility = 'visible';
   }
 
   _setPages(index){

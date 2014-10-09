@@ -31,6 +31,7 @@ FileParser.prototype = {
       var option = this._pageOptions[index];
       this._slides.push({
         style: this.getStyle(option),
+        className: this.getClassName(option),
         content: marked(pageData, { renderer: renderer })
       });
     }.bind(this));
@@ -90,6 +91,16 @@ FileParser.prototype = {
       }
     }
     return style;
+  },
+
+  getClassName: function(option){
+    var className = '';
+    for(var prop in option){
+      if(prop == 'align'){
+        className += ' align-' + option[prop] + '';
+      }
+    }
+    return className;
   }
 };
 

@@ -10,9 +10,11 @@
 <body>
   <div id="presentation" class="slide_container">
     <% slides.forEach(function(slide){ %>
-      <section style="<%= slide.style %>">
-        <div class="slide_content">
-          <%- slide.content %>
+      <section class="<%= slide.className %>" style="<%= slide.style %>">
+        <div class="slide">
+          <div class="slide_content">
+            <%- slide.content %>
+          </div>
         </div>
       </section>
     <% }); %>

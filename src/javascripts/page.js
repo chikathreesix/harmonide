@@ -4,7 +4,7 @@ import { Dom } from './util';
 export class Page{
   constructor(container, state, options){
     this._container = container;
-    this._content = container.querySelector('.slide_content');
+    this._content = container.querySelector('.slide');
     this.state = state;
 
     this._originWidth = this._content.offsetWidth;
