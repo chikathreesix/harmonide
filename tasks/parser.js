@@ -23,18 +23,23 @@ FileParser.prototype = {
     this._slides = [];
 
     this._globalOption = this.parseGlobalOption();
-    this._pageOptions = this.parsePageOptions(this._globalOption);
 
-    var dataArr = this._data.split(/\-{5,}\n[^-]*\-{5,}\n\n/);
+    var dataArr = this._data.split(/\-{5,}\n/);
+    var i = 0;
     dataArr.shift();
-    dataArr.forEach(function(pageData, index){
-      var option = this._pageOptions[index];
+
+    while(i < dataArr.length - 1){
+      var option = this.parseOption(dataArr[i], this._globalOption);
+      var mdStr = dataArr[++i];
+
       this._slides.push({
         style: this.getStyle(option),
         className: this.getClassName(option),
-        content: marked(pageData, { renderer: renderer })
+        content: marked(mdStr, { renderer: renderer })
       });
-    }.bind(this));
+
+      i++;
+    }
 
     var template = fs.readFileSync('src/index.html.ejs', 'utf8');
     fs.writeFileSync('build/' + this._fileName + '.html', ejs.render(template, {slides: this._slides}));
@@ -69,25 +74,16 @@ FileParser.prototype = {
     return option;
   },
 
-  // parse each page's options to an object and remove the string from the data
-  parsePageOptions: function(globalOption){
-    var regex = /\-{5,}\n([^-]*)\-{5,}\n\n/g;
-    var match;
-    var options = [];
-    var index = 0;
-    while(match = regex.exec(this._data)){
-      var optionStr = match[0].replace(/\-{5,}\n/g,'');
-      options.push(this.parseOption(optionStr));
-    }
-
-    return options;
-  },
-
   getStyle: function(option){
     var style = '';
     for(var prop in option){
-      if(prop == 'backgroundColor'){
-        style += 'background-color:' + option[prop] + ';';
+      switch(prop){
+        case 'backgroundColor':
+          style += ' background-color:' + option[prop] + ';';
+          break;
+        case 'backgroundImage':
+          style += ' background-image:url("assets/' + option[prop] + '");';
+          break;
       }
     }
     return style;

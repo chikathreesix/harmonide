@@ -1,6 +1,6 @@
-System.register("../src/javascripts/exe", [], function() {
+System.register("../../src/javascripts/exe", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/exe";
+  var __moduleName = "../../src/javascripts/exe";
   window.exe = {
     executor: null,
     init: function(initCb) {
@@ -79,4 +79,4 @@ System.register("../src/javascripts/exe", [], function() {
   }, {});
   return {};
 });
-System.get("../src/javascripts/exe" + '');
+System.get("../../src/javascripts/exe" + '');

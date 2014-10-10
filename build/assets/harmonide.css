@@ -1,4 +1,4 @@
-/* line 17, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -68,7 +68,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   src: url("Chunkfive.otf");
 }
 
-/* line 12, ../src/stylesheets/harmonide.scss */
+/* line 12, ../../src/stylesheets/harmonide.scss */
 html, body {
   width: 100%;
   height: 100%;
@@ -77,7 +77,7 @@ html, body {
   background-color: black;
 }
 
-/* line 20, ../src/stylesheets/harmonide.scss */
+/* line 20, ../../src/stylesheets/harmonide.scss */
 .slide_container {
   position: absolute;
   top: 0;
@@ -87,15 +87,17 @@ html, body {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 29, ../src/stylesheets/harmonide.scss */
+/* line 29, ../../src/stylesheets/harmonide.scss */
 .slide_container section {
   width: 100%;
   height: 100%;
   background-color: #969DA6;
   color: white;
   position: absolute;
+  background-size: cover;
+  background-position: center;
 }
-/* line 36, ../src/stylesheets/harmonide.scss */
+/* line 38, ../../src/stylesheets/harmonide.scss */
 .slide_container section.prev {
   -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
@@ -103,7 +105,7 @@ html, body {
   -o-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-/* line 40, ../src/stylesheets/harmonide.scss */
+/* line 42, ../../src/stylesheets/harmonide.scss */
 .slide_container section.curr {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
@@ -111,7 +113,7 @@ html, body {
   -o-transform: translateX(0);
   transform: translateX(0);
 }
-/* line 44, ../src/stylesheets/harmonide.scss */
+/* line 46, ../../src/stylesheets/harmonide.scss */
 .slide_container section.next {
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
@@ -119,7 +121,7 @@ html, body {
   -o-transform: translateX(100%);
   transform: translateX(100%);
 }
-/* line 49, ../src/stylesheets/harmonide.scss */
+/* line 51, ../../src/stylesheets/harmonide.scss */
 .slide_container section.align-middle .slide_content {
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -128,7 +130,7 @@ html, body {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 56, ../src/stylesheets/harmonide.scss */
+/* line 58, ../../src/stylesheets/harmonide.scss */
 .slide_container section.align-bottom .slide_content {
   top: 100%;
   -webkit-transform: translateY(-100%);
@@ -137,7 +139,7 @@ html, body {
   -o-transform: translateY(-100%);
   transform: translateY(-100%);
 }
-/* line 62, ../src/stylesheets/harmonide.scss */
+/* line 64, ../../src/stylesheets/harmonide.scss */
 .slide_container section .slide {
   width: 640px;
   height: 480px;
@@ -149,12 +151,12 @@ html, body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 71, ../src/stylesheets/harmonide.scss */
+/* line 73, ../../src/stylesheets/harmonide.scss */
 .slide_container section .slide .slide_content {
   position: relative;
   width: 100%;
 }
-/* line 77, ../src/stylesheets/harmonide.scss */
+/* line 79, ../../src/stylesheets/harmonide.scss */
 .slide_container section h1 {
   font-size: 48px;
   margin-bottom: 30px;
@@ -162,16 +164,16 @@ html, body {
   text-align: center;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
 }
-/* line 85, ../src/stylesheets/harmonide.scss */
+/* line 87, ../../src/stylesheets/harmonide.scss */
 .slide_container section ul {
   padding-left: 40px;
   list-style-type: disc;
 }
-/* line 89, ../src/stylesheets/harmonide.scss */
+/* line 91, ../../src/stylesheets/harmonide.scss */
 .slide_container section ul li {
   margin-bottom: 20px;
 }
-/* line 94, ../src/stylesheets/harmonide.scss */
+/* line 96, ../../src/stylesheets/harmonide.scss */
 .slide_container section .exe-container {
   font-family: monospace;
   line-height: 1.5em;

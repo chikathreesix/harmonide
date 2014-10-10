@@ -3,8 +3,8 @@ module.exports = function(grunt){
     shell: {
       traceur: {
         command: [
-          'traceur --experimental --out build/harmonide.js src/javascripts/harmonide.js',
-          'traceur --experimental --out build/exe.js src/javascripts/exe.js'
+          'traceur --experimental --out build/assets/harmonide.js src/javascripts/harmonide.js',
+          'traceur --experimental --out build/assets/exe.js src/javascripts/exe.js'
         ].join('&&')
       },
       traceur_test:{
@@ -44,7 +44,7 @@ module.exports = function(grunt){
     sass: {
       dist: {
         files: {
-          'build/harmonide.css': 'src/stylesheets/harmonide.scss'
+          'build/assets/harmonide.css': 'src/stylesheets/harmonide.scss'
         }
       }
     },
@@ -52,7 +52,7 @@ module.exports = function(grunt){
       dist: {
         options: {
           sassDir: 'src/stylesheets',
-          cssDir: 'build'
+          cssDir: 'build/assets'
         }
       }
     },

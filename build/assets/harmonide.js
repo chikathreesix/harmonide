@@ -1,6 +1,6 @@
-System.register("../src/javascripts/effects/slide_effect", [], function() {
+System.register("../../src/javascripts/effects/slide_effect", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/effects/slide_effect";
+  var __moduleName = "../../src/javascripts/effects/slide_effect";
   var SlideEffect = function SlideEffect(container) {
     this._container = container;
     this._container.style.transition = 'transform 0.5s';
@@ -16,9 +16,9 @@ System.register("../src/javascripts/effects/slide_effect", [], function() {
       return SlideEffect;
     }};
 });
-System.register("../src/javascripts/util", [], function() {
+System.register("../../src/javascripts/util", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/util";
+  var __moduleName = "../../src/javascripts/util";
   var Dom = function(elem) {
     return new DomHandler(elem);
   };
@@ -60,11 +60,11 @@ System.register("../src/javascripts/util", [], function() {
       return Dom;
     }};
 });
-System.register("../src/javascripts/page", [], function() {
+System.register("../../src/javascripts/page", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/page";
-  var SlideEffect = System.get("../src/javascripts/effects/slide_effect").SlideEffect;
-  var Dom = System.get("../src/javascripts/util").Dom;
+  var __moduleName = "../../src/javascripts/page";
+  var SlideEffect = System.get("../../src/javascripts/effects/slide_effect").SlideEffect;
+  var Dom = System.get("../../src/javascripts/util").Dom;
   var Page = function Page(container, state, options) {
     this._container = container;
     this._content = container.querySelector('.slide');
@@ -118,9 +118,9 @@ System.register("../src/javascripts/page", [], function() {
       return Page;
     }};
 });
-System.register("../src/javascripts/dispatcher", [], function() {
+System.register("../../src/javascripts/dispatcher", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/dispatcher";
+  var __moduleName = "../../src/javascripts/dispatcher";
   var Dispatcher = function Dispatcher() {
     this._eventCbs = {};
   };
@@ -154,10 +154,10 @@ System.register("../src/javascripts/dispatcher", [], function() {
       return Dispatcher;
     }};
 });
-System.register("../src/javascripts/url_handler", [], function() {
+System.register("../../src/javascripts/url_handler", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/url_handler";
-  var Dispatcher = System.get("../src/javascripts/dispatcher").Dispatcher;
+  var __moduleName = "../../src/javascripts/url_handler";
+  var Dispatcher = System.get("../../src/javascripts/dispatcher").Dispatcher;
   var URLHandler = {
     _instance: null,
     getInstance: function() {
@@ -185,11 +185,11 @@ System.register("../src/javascripts/url_handler", [], function() {
       return URLHandler;
     }};
 });
-System.register("../src/javascripts/presentation", [], function() {
+System.register("../../src/javascripts/presentation", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/presentation";
-  var URLHandler = System.get("../src/javascripts/url_handler").URLHandler;
-  var Page = System.get("../src/javascripts/page").Page;
+  var __moduleName = "../../src/javascripts/presentation";
+  var URLHandler = System.get("../../src/javascripts/url_handler").URLHandler;
+  var Page = System.get("../../src/javascripts/page").Page;
   var Presentation = function Presentation(container, options) {
     this._container = container;
     this._pages = [];
@@ -265,14 +265,14 @@ System.register("../src/javascripts/presentation", [], function() {
       return Presentation;
     }};
 });
-System.register("../src/javascripts/harmonide", [], function() {
+System.register("../../src/javascripts/harmonide", [], function() {
   "use strict";
-  var __moduleName = "../src/javascripts/harmonide";
-  var Presentation = System.get("../src/javascripts/presentation").Presentation;
+  var __moduleName = "../../src/javascripts/harmonide";
+  var Presentation = System.get("../../src/javascripts/presentation").Presentation;
   window.addEventListener('DOMContentLoaded', (function(event) {
     var container = document.getElementById('presentation'),
         presentation1 = new Presentation(container);
   }));
   return {};
 });
-System.get("../src/javascripts/harmonide" + '');
+System.get("../../src/javascripts/harmonide" + '');

@@ -32,6 +32,8 @@ html, body{
     background-color: #969DA6;
     color: white;
     position: absolute;
+    background-size: cover;
+    background-position: center;
 
     &.prev{
       @include transform(translateX(-100%));
