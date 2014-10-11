@@ -6,7 +6,6 @@ window.exe = {
   },
 
   log(index, content){
-    console.log(index, content);
     this.executor.execute(index, content);
   }
 }
@@ -47,6 +46,8 @@ class CodeBlock{
     this._elem = elem;
     this._code = elem.innerHTML;
     this._language = elem.dataset.language;
+    this._isOpen = false;
+    this._btnText = {open: 'Run', close: 'close'};
 
     if(this._language == 'js'){
       this.replaceJSCode();
@@ -68,7 +69,7 @@ class CodeBlock{
     this._container.className = 'exe-container';
     this._consoleElem.className = 'exe-console';
     this._btnElem.className = 'exe-btn';
-    this._btnElem.innerHTML = 'Run the code';
+    this._btnElem.innerHTML = this._btnText.open;
 
     preElem.parentNode.insertBefore(this._container, preElem);
     this._container.appendChild(this._consoleElem);
@@ -79,15 +80,22 @@ class CodeBlock{
   }
 
   onClick(e){
-    this._consoleElem.style.display = 'block';
-    this._consoleElem.innerHTML = '';
+    this._isOpen = !this._isOpen;
+    this._btnElem.innerHTML = (this._isOpen) ? this._btnText.close : this._btnText.open;
 
-		var script = document.createElement('script');
-		
-		script.type = 'text/javascript';
-		script.innerHTML = this._code;
-		document.body.appendChild(script);
-		document.body.removeChild(script);
+    if(this._isOpen){
+      this._consoleElem.style.display = 'block';
+      this._consoleElem.innerHTML = '';
+
+		  var script = document.createElement('script');
+		  
+		  script.type = 'text/javascript';
+		  script.innerHTML = this._code;
+		  document.body.appendChild(script);
+		  document.body.removeChild(script);
+    }else{
+      this._consoleElem.style.display = 'none';
+    }
   }
 
   execute(content){

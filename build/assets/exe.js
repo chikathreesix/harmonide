@@ -7,7 +7,6 @@ System.register("../../src/javascripts/exe", [], function() {
       this.executor = new CodeExecutor(initCb);
     },
     log: function(index, content) {
-      console.log(index, content);
       this.executor.execute(index, content);
     }
   };
@@ -40,6 +39,11 @@ System.register("../../src/javascripts/exe", [], function() {
     this._elem = elem;
     this._code = elem.innerHTML;
     this._language = elem.dataset.language;
+    this._isOpen = false;
+    this._btnText = {
+      open: 'Run',
+      close: 'close'
+    };
     if (this._language == 'js') {
       this.replaceJSCode();
     }
@@ -57,7 +61,7 @@ System.register("../../src/javascripts/exe", [], function() {
       this._container.className = 'exe-container';
       this._consoleElem.className = 'exe-console';
       this._btnElem.className = 'exe-btn';
-      this._btnElem.innerHTML = 'Run the code';
+      this._btnElem.innerHTML = this._btnText.open;
       preElem.parentNode.insertBefore(this._container, preElem);
       this._container.appendChild(this._consoleElem);
       this._container.appendChild(this._btnElem);
@@ -65,13 +69,19 @@ System.register("../../src/javascripts/exe", [], function() {
       this._btnElem.addEventListener('click', this.onClick.bind(this), false);
     },
     onClick: function(e) {
-      this._consoleElem.style.display = 'block';
-      this._consoleElem.innerHTML = '';
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.innerHTML = this._code;
-      document.body.appendChild(script);
-      document.body.removeChild(script);
+      this._isOpen = !this._isOpen;
+      this._btnElem.innerHTML = (this._isOpen) ? this._btnText.close : this._btnText.open;
+      if (this._isOpen) {
+        this._consoleElem.style.display = 'block';
+        this._consoleElem.innerHTML = '';
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.innerHTML = this._code;
+        document.body.appendChild(script);
+        document.body.removeChild(script);
+      } else {
+        this._consoleElem.style.display = 'none';
+      }
     },
     execute: function(content) {
       this._consoleElem.innerHTML += "<span>&gt;</span>" + content;
