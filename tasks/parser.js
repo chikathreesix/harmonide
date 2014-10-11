@@ -56,10 +56,16 @@ FileParser.prototype = {
     }
 
     optionStr.split('\n').forEach(function(str){
-      var keyValue = str.split(':');
-      if(keyValue[0] != null && keyValue[1] != null){
-        option[keyValue[0].trim()] = keyValue[1].trim();
+      if(str.length == 0){
+        return;
       }
+
+      var keyValue = str.split(':');
+      if(keyValue[0] == null || keyValue[1] == null){
+        throw new Error('parse error at ' + optionStr);
+      }
+
+      option[keyValue[0].trim()] = keyValue[1].trim();
     });
   
     return option;
