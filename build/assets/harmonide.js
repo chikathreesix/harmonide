@@ -47,7 +47,7 @@ System.register("../../src/javascripts/util", [], function() {
         classNames$__3 = className.split(' ');
         index$__4 = classNames$__3.indexOf(name);
         if (index$__4 !== -1) {
-          classNames$__3.splice(index$__4);
+          classNames$__3.splice(index$__4, 1);
         }
         this._elem.className = classNames$__3.join(' ');
       }
@@ -76,6 +76,7 @@ System.register("../../src/javascripts/page", [], function() {
     } else {
       this._effect = new SlideEffect(this._container);
     }
+    console.log(this._container);
     Dom(this._container).addClass(this._effect.className);
   };
   ($traceurRuntime.createClass)(Page, {

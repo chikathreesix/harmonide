@@ -72,6 +72,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('default', ['shell:traceur', 'compass', 'parse']);
+  grunt.registerTask('default', ['shell', 'compass', 'parse']);
   grunt.loadTasks('tasks');
 }

@@ -26,7 +26,7 @@ class DomHandler{
       let classNames = className.split(' '),
           index = classNames.indexOf(name);
       if(index !== -1){
-        classNames.splice(index);
+        classNames.splice(index, 1);
       }
       this._elem.className = classNames.join(' ');
     }

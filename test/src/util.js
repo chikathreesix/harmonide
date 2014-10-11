@@ -34,6 +34,12 @@ describe('util', ()=>{
             dom.removeClass(className);
             expect(dom.element.className).to.be.equal('');
           });
+
+          it('will not remove other classes', ()=>{
+            dom.element.className = 'hoge fuga piyo';
+            dom.removeClass('fuga');
+            expect(dom.element.className).to.be.equal('hoge piyo');
+          });
         });
       });
 
