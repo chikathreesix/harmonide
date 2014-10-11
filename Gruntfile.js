@@ -13,14 +13,14 @@ module.exports = function(grunt){
     },
     watch: {
       js: {
-        files: ['src/javascripts/*.js'],
+        files: ['src/javascripts/*.js', 'src/javascripts/effects/*.js'],
         tasks: ['shell:traceur'],
         options: {
           spawn: false,
         }
       },
       css: {
-        files: ['src/stylesheets/*.scss'],
+        files: ['src/stylesheets/*.scss', 'src/stylesheets/effects/*.scss'],
         tasks: ['compass'],
         options: {
           spawn: false,

@@ -4,6 +4,7 @@
 @import "compass/css3/text-shadow";
 @import "compass/css3/transform";
 @import "compass/css3/box";
+@import "effects/slide_effect";
 
 @font-face {
   font-family: Chunkfive; src: url('Chunkfive.otf');
@@ -34,18 +35,6 @@ html, body{
     position: absolute;
     background-size: cover;
     background-position: center;
-
-    &.prev{
-      @include transform(translateX(-100%));
-    }
-
-    &.curr{
-      @include transform(translateX(0));
-    }
-
-    &.next{
-      @include transform(translateX(100%));
-    }
 
     &.align-middle{
       .slide_content{

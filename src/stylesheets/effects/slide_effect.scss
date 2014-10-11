@@ -1,0 +1,32 @@
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+.effect_slide{
+  .slide{
+    @include transition(transform 1s);
+  }
+
+  &.prev{
+    @include transform(translateX(-100%));
+
+    .slide{
+      @include transform(translateX(-100%));
+    }
+  }
+
+  &.curr{
+    @include transform(translateX(0));
+
+    .slide{
+      @include transform(translateX(0));
+    }
+  }
+
+  &.next{
+    @include transform(translateX(100%));
+
+    .slide{
+      @include transform(translateX(100%));
+    }
+  }
+}
