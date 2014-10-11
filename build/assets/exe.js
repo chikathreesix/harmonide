@@ -71,16 +71,14 @@ System.register("../../src/javascripts/exe", [], function() {
     onClick: function(e) {
       this._isOpen = !this._isOpen;
       this._btnElem.innerHTML = (this._isOpen) ? this._btnText.close : this._btnText.open;
+      this._consoleElem.style.display = (this._isOpen) ? 'block' : 'none';
       if (this._isOpen) {
-        this._consoleElem.style.display = 'block';
         this._consoleElem.innerHTML = '';
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.innerHTML = this._code;
         document.body.appendChild(script);
         document.body.removeChild(script);
-      } else {
-        this._consoleElem.style.display = 'none';
       }
     },
     execute: function(content) {
