@@ -26,7 +26,9 @@ FileParser.prototype = {
 
     var dataArr = this._data.split(/\-{5,}\n/);
     var i = 0;
-    dataArr.shift();
+    if(dataArr[0].length == 0){
+      dataArr.shift();
+    }
 
     while(i < dataArr.length - 1){
       var option = this.parseOption(dataArr[i], this._globalOption);
@@ -73,10 +75,19 @@ FileParser.prototype = {
 
   // parse global options to an object and remove the string from the data
   parseGlobalOption : function(){
-    var match = this._data.match(/\*{5,}\n([^\*]*)\*{5,}/);
-    var option = this.parseOption(match[1]);
-    this._data = this._data.replace(match[0], '');
+    var dataArr = this._data.split('\n');
+    var option = {};
+    while(dataArr.length > 0){
+      var str = dataArr.shift();
+      var match = str.match(/.*:.*/);
+      if(!match){
+        break;
+      }
+      var keyValue = str.split(':');
+      option[keyValue[0].trim()] = keyValue[1].trim();
+    }
 
+    this._data = dataArr.join('\n');
     return option;
   },
 

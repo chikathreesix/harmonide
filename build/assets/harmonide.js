@@ -76,7 +76,6 @@ System.register("../../src/javascripts/page", [], function() {
     } else {
       this._effect = new SlideEffect(this._container);
     }
-    console.log(this._container);
     Dom(this._container).addClass(this._effect.className);
   };
   ($traceurRuntime.createClass)(Page, {
