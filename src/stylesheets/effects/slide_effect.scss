@@ -3,7 +3,7 @@
 
 .effect_slide{
   .slide{
-    @include transition(transform 1s);
+    @include transition(transform 0.8s);
   }
 
   &.prev{

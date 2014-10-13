@@ -65,10 +65,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 5, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide .slide {
-  -webkit-transition: -webkit-transform 1s;
-  -moz-transition: -moz-transform 1s;
-  -o-transition: -o-transform 1s;
-  transition: transform 1s;
+  -webkit-transition: -webkit-transform 0.8s;
+  -moz-transition: -moz-transform 0.8s;
+  -o-transition: -o-transform 0.8s;
+  transition: transform 0.8s;
 }
 /* line 9, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide.prev {
