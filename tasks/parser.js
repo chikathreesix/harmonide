@@ -101,6 +101,9 @@ FileParser.prototype = {
         case 'backgroundImage':
           style += ' background-image:url("assets/' + option[prop] + '");';
           break;
+        case 'color':
+          style += ' color:' + option[prop] + ';';
+          break;
       }
     }
     return style;
