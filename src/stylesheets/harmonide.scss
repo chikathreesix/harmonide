@@ -58,6 +58,7 @@ html, body{
       line-height: 1.5em;
       font-size: 24px;
       @include box-sizing(border-box);
+      @include text-shadow(0px 0px 6px rgba(0,0,0,0.4));
 
       .slide_content{
         position: relative;
@@ -70,7 +71,7 @@ html, body{
       margin-bottom: 30px;
       letter-spacing: 0.02em;
       text-align: center;
-      @include text-shadow(0px 0px 6px rgba(0,0,0,0.2));
+      line-height: 1.8em;
     }
 
     ul{
@@ -89,9 +90,8 @@ html, body{
     .exe-container{
       font-family: monospace;
       line-height: 1.5em;
-      width: 300px;
-      margin: 0 auto;
       font-size: 18px;
+      @include text-shadow(none);
     }
   }
 }
