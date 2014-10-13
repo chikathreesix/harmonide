@@ -206,6 +206,10 @@ html, body {
   margin-bottom: 20px;
 }
 /* line 85, ../../src/stylesheets/harmonide.scss */
+.slide_container section a {
+  color: inherit;
+}
+/* line 89, ../../src/stylesheets/harmonide.scss */
 .slide_container section .exe-container {
   font-family: monospace;
   line-height: 1.5em;
