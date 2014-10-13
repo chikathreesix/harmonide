@@ -31,7 +31,7 @@ export class Presentation{
   }
 
   _onResize(event){
-    this._pages.forEach((page) => {
+    this._pages.forEach(page => {
       page.resize(window.innerWidth, window.innerHeight);
     });
   }
