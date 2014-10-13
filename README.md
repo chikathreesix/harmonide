@@ -40,10 +40,10 @@ backgroundImage: test.jpg
 
 # Slide2 title
 
-```js
+\`\`\`js
 var test = 'test';
 console.log(test);
-```
+\`\`\`
 ```
 
 
