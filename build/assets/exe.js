@@ -89,7 +89,11 @@ System.register("../../src/javascripts/exe", [], function() {
       this._script = document.createElement('script');
       this._script.type = 'text/javascript';
       this._script.innerHTML = this._code;
-      document.body.appendChild(this._script);
+      try {
+        document.body.appendChild(this._script);
+      } catch (e) {
+        this.showError(e);
+      }
     },
     executeJSES6: function() {
       traceur.options.experimental = true;
@@ -97,10 +101,17 @@ System.register("../../src/javascripts/exe", [], function() {
       this._script.type = 'module';
       this._script.innerHTML = this._code;
       document.body.appendChild(this._script);
-      new traceur.WebPageTranscoder(document.location.href).run();
+      try {
+        new traceur.WebPageTranscoder(document.location.href).run();
+      } catch (e) {
+        this.showError(e);
+      }
     },
     execute: function(content) {
       this._consoleElem.innerHTML += '<div><span>&gt;</span>' + content + '</div>';
+    },
+    showError: function(e) {
+      this._consoleElem.innerHTML += '<div style="color:red;"><span>&gt;</span>' + e.toString() + '</div>';
     }
   }, {});
   return {};
