@@ -105,7 +105,6 @@ System.register("../../src/javascripts/page", [], function() {
       }
     },
     resize: function(width, height) {
-      console.log(WIDTH);
       var widthRatio = width / this._originWidth;
       var heightRatio = height / this._originHeight;
       var ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;

@@ -52,7 +52,6 @@ export class Page{
   }
 
   resize(width, height){
-    console.log(WIDTH);
     let widthRatio = width / this._originWidth;
     let heightRatio = height / this._originHeight;
     let ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;

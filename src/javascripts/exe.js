@@ -49,10 +49,9 @@ class CodeBlock{
     this._isOpen = false;
     this._btnText = {open: 'Run', close: 'close'};
 
-    if(this._language == 'js'){
+    if(this._language == 'js' || this._language == 'jses6'){
       this.replaceJSCode();
     }
-
     this.createElements();
   }
 
@@ -87,16 +86,37 @@ class CodeBlock{
     if(this._isOpen){
       this._consoleElem.innerHTML = '';
 
-		  var script = document.createElement('script');
-		  
-		  script.type = 'text/javascript';
-		  script.innerHTML = this._code;
-		  document.body.appendChild(script);
-		  document.body.removeChild(script);
+      if(this._language == 'js'){
+        this.executeJS();
+      }else if(this._language == 'jses6'){
+        this.executeJSES6();
+      }
+    }else{
+      if(this._script){
+        this._script.parentNode.removeChild(this._script);
+      }
     }
   }
 
+  executeJS(){
+    this._script = document.createElement('script');
+
+    this._script.type = 'text/javascript';
+    this._script.innerHTML = this._code;
+    document.body.appendChild(this._script);
+  }
+
+  executeJSES6(){
+    traceur.options.experimental = true;
+
+    this._script = document.createElement('script');
+    this._script.type = 'module';
+    this._script.innerHTML = this._code;
+    document.body.appendChild(this._script);
+    new traceur.WebPageTranscoder(document.location.href).run();
+  }
+
   execute(content){
-    this._consoleElem.innerHTML += "<span>&gt;</span>" + content;
+    this._consoleElem.innerHTML += '<div><span>&gt;</span>' + content + '</div>';
   }
 }
