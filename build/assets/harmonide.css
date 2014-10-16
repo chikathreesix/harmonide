@@ -173,8 +173,6 @@ html, body {
 }
 /* line 53, ../../src/stylesheets/harmonide.scss */
 .slide_container section .slide {
-  width: 640px;
-  height: 480px;
   padding: 30px 20px;
   margin: 0 auto;
   line-height: 1.5em;
@@ -184,12 +182,12 @@ html, body {
   box-sizing: border-box;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
 }
-/* line 63, ../../src/stylesheets/harmonide.scss */
+/* line 61, ../../src/stylesheets/harmonide.scss */
 .slide_container section .slide .slide_content {
   position: relative;
   width: 100%;
 }
-/* line 69, ../../src/stylesheets/harmonide.scss */
+/* line 67, ../../src/stylesheets/harmonide.scss */
 .slide_container section h1 {
   font-size: 48px;
   margin-bottom: 30px;
@@ -197,20 +195,20 @@ html, body {
   text-align: center;
   line-height: 1.8em;
 }
-/* line 77, ../../src/stylesheets/harmonide.scss */
+/* line 75, ../../src/stylesheets/harmonide.scss */
 .slide_container section ul {
   padding-left: 40px;
   list-style-type: disc;
 }
-/* line 81, ../../src/stylesheets/harmonide.scss */
+/* line 79, ../../src/stylesheets/harmonide.scss */
 .slide_container section ul li {
   margin-bottom: 20px;
 }
-/* line 86, ../../src/stylesheets/harmonide.scss */
+/* line 84, ../../src/stylesheets/harmonide.scss */
 .slide_container section a {
   color: inherit;
 }
-/* line 90, ../../src/stylesheets/harmonide.scss */
+/* line 88, ../../src/stylesheets/harmonide.scss */
 .slide_container section .exe-container {
   font-family: monospace;
   line-height: 1.5em;

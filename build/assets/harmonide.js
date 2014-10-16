@@ -65,12 +65,13 @@ System.register("../../src/javascripts/page", [], function() {
   var __moduleName = "../../src/javascripts/page";
   var SlideEffect = System.get("../../src/javascripts/effects/slide_effect").SlideEffect;
   var Dom = System.get("../../src/javascripts/util").Dom;
+  var WIDTH = 680;
+  var HEIGHT = 480;
   var Page = function Page(container, state, options) {
     this._container = container;
     this._content = container.querySelector('.slide');
     this.state = state;
-    this._originWidth = this._content.offsetWidth;
-    this._originHeight = this._content.offsetHeight;
+    this.setDefaultSize();
     if (options && options.effect) {
       this._effect = options.effect;
     } else {
@@ -79,6 +80,15 @@ System.register("../../src/javascripts/page", [], function() {
     Dom(this._container).addClass(this._effect.className);
   };
   ($traceurRuntime.createClass)(Page, {
+    setDefaultSize: function() {
+      this._originWidth = WIDTH;
+      this._originHeight = this._content.offsetHeight;
+      this._content.style.width = WIDTH + 'px';
+      if (this._originHeight < HEIGHT) {
+        this._originHeight = HEIGHT;
+        this._content.style.height = HEIGHT + 'px';
+      }
+    },
     set state(state) {
       Dom(this._container).removeClass(this._getStateClass(this._state));
       this._state = state;
@@ -95,6 +105,7 @@ System.register("../../src/javascripts/page", [], function() {
       }
     },
     resize: function(width, height) {
+      console.log(WIDTH);
       var widthRatio = width / this._originWidth;
       var heightRatio = height / this._originHeight;
       var ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;

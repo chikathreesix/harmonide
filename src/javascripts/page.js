@@ -1,14 +1,17 @@
 import { SlideEffect } from './effects/slide_effect';
 import { Dom } from './util';
 
+const WIDTH = 680;
+const HEIGHT = 480;
+
 export class Page{
   constructor(container, state, options){
+
     this._container = container;
     this._content = container.querySelector('.slide');
     this.state = state;
 
-    this._originWidth = this._content.offsetWidth;
-    this._originHeight = this._content.offsetHeight;
+    this.setDefaultSize();
 
     if(options && options.effect){
       this._effect = options.effect;
@@ -17,6 +20,18 @@ export class Page{
     }
 
     Dom(this._container).addClass(this._effect.className);
+  }
+
+  setDefaultSize(){
+    this._originWidth = WIDTH;
+    this._originHeight = this._content.offsetHeight;
+
+    this._content.style.width = WIDTH + 'px';
+
+    if(this._originHeight < HEIGHT){
+      this._originHeight = HEIGHT;
+      this._content.style.height = HEIGHT + 'px';
+    }
   }
 
   set state(state){
@@ -37,6 +52,7 @@ export class Page{
   }
 
   resize(width, height){
+    console.log(WIDTH);
     let widthRatio = width / this._originWidth;
     let heightRatio = height / this._originHeight;
     let ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;
