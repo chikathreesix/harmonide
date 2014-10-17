@@ -86,14 +86,24 @@ class CodeBlock{
     if(this._isOpen){
       this._consoleElem.innerHTML = '';
 
+      window.onerror = (errorMsg, file, lineNumber, colNumber, error)  => {
+        this.showError(errorMsg);
+      }
+
       if(this._language == 'js'){
         this.executeJS();
       }else if(this._language == 'jses6'){
         this.executeJSES6();
       }
     }else{
+      window.onerror = null;
+
       if(this._script){
         this._script.parentNode.removeChild(this._script);
+      }
+
+      if(this._consoleError){
+        console.error = this._consoleError;
       }
     }
   }
@@ -103,32 +113,29 @@ class CodeBlock{
 
     this._script.type = 'text/javascript';
     this._script.innerHTML = this._code;
-    try{
-      document.body.appendChild(this._script);
-    }catch(e){
-      this.showError(e);
-    }
+    document.body.appendChild(this._script);
   }
 
   executeJSES6(){
+    this._consoleError = console.error;
+    console.error = (e) => {
+      this.showError(e);
+    }
     traceur.options.experimental = true;
 
     this._script = document.createElement('script');
     this._script.type = 'module';
     this._script.innerHTML = this._code;
     document.body.appendChild(this._script);
-    try{
-      new traceur.WebPageTranscoder(document.location.href).run();
-    }catch(e){
-      this.showError(e);
-    }
+    new traceur.WebPageTranscoder(document.location.href).run();
   }
 
   execute(content){
     this._consoleElem.innerHTML += '<div><span>&gt;</span>' + content + '</div>';
   }
 
-  showError(e){
-    this._consoleElem.innerHTML += '<div style="color:red;"><span>&gt;</span>' + e.toString() + '</div>';
+  showError(message){
+    console.log(message);
+    this._consoleElem.innerHTML += '<div style="color:red;"><span>&gt;</span>' + message + '</div>';
   }
 }
