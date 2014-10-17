@@ -56,7 +56,7 @@ class CodeBlock{
   }
 
   replaceJSCode(){
-    this._code = this._code.replace(/console\.log\((.*)\)/, "exe.log(" + this._index + ", $1)").replace(/&lt;/,"<");
+    this._code = this._code.replace(/console\.log\((.*)\)/g, "exe.log(" + this._index + ", $1)").replace(/&lt;/g,"<").replace(/&gt;/g,">");
   }
 
   createElements(){
@@ -131,6 +131,12 @@ class CodeBlock{
   }
 
   execute(content){
+    if(typeof content != 'string'){
+      try{
+        content = JSON.stringify(content);
+      }catch(e){
+      }
+    }
     this._consoleElem.innerHTML += '<div><span>&gt;</span>' + content + '</div>';
   }
 

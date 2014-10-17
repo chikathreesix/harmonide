@@ -51,7 +51,7 @@ System.register("../../src/javascripts/exe", [], function() {
   };
   ($traceurRuntime.createClass)(CodeBlock, {
     replaceJSCode: function() {
-      this._code = this._code.replace(/console\.log\((.*)\)/, "exe.log(" + this._index + ", $1)").replace(/&lt;/, "<");
+      this._code = this._code.replace(/console\.log\((.*)\)/g, "exe.log(" + this._index + ", $1)").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
     },
     createElements: function() {
       var preElem = this._elem.parentNode;
@@ -113,6 +113,11 @@ System.register("../../src/javascripts/exe", [], function() {
       new traceur.WebPageTranscoder(document.location.href).run();
     },
     execute: function(content) {
+      if (typeof content != 'string') {
+        try {
+          content = JSON.stringify(content);
+        } catch (e) {}
+      }
       this._consoleElem.innerHTML += '<div><span>&gt;</span>' + content + '</div>';
     },
     showError: function(message) {
