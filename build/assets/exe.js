@@ -94,6 +94,7 @@ System.register("../../src/javascripts/exe", [], function() {
       }
     },
     executeJS: function() {
+      this._code = '(function(){' + this._code + '})();';
       this._script = document.createElement('script');
       this._script.type = 'text/javascript';
       this._script.innerHTML = this._code;

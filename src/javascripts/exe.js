@@ -109,6 +109,7 @@ class CodeBlock{
   }
 
   executeJS(){
+    this._code = '(function(){' + this._code + '})();';
     this._script = document.createElement('script');
 
     this._script.type = 'text/javascript';
