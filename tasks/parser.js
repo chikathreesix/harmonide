@@ -6,7 +6,16 @@ var renderer = new marked.Renderer();
 var dir = 'drafts';
 
 renderer.code = function(code, language){
-  return '<pre><code class="hljs ' + language + ' exe" data-language="' + language + '">' + code + '</code></pre>';
+  var className = 'hljs ' + language;
+  var attr = '';
+
+  if(language == 'js' || language == 'jses6'){
+    className += ' exe';
+    attr += ' data-language="' + language + '"';
+  }else if(language == 'html'){
+    code = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  return '<pre><code class="' + className + '"' + attr + '>' + code + '</code></pre>';
 }
 
 function FileParser(){
