@@ -21,6 +21,16 @@ mkdir drafts
 vi drafts/sample.md
 ```
 
+Generate html from markedown
+
+```sh
+grunt parse
+```
+It will generate html files in the build directory from all markedown files in the drafts directory.
+In this case, you will get `build/sample.html`.
+Now you can upload `buid` directory to your webserver!
+
+
 ### Markedown formats
 
 ```md
