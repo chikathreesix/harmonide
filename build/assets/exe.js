@@ -66,7 +66,7 @@ System.register("../../src/javascripts/exe", [], function() {
       this._container.appendChild(this._consoleElem);
       this._container.appendChild(this._btnElem);
       this._container.insertBefore(preElem, this._consoleElem);
-      this._btnElem.addEventListener('click', this.onClick.bind(this), false);
+      this._container.addEventListener('click', this.onClick.bind(this), false);
     },
     onClick: function(e) {
       var $__0 = this;
