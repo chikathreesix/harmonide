@@ -213,7 +213,7 @@ html, body {
   color: inherit;
 }
 /* line 94, ../../src/stylesheets/harmonide.scss */
-.slide_container section pre {
+.slide_container section pre, .slide_container section .exe-container {
   font-family: monospace;
   line-height: 1.5em;
   font-size: 18px;
