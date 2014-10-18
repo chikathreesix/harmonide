@@ -50,6 +50,12 @@ html, body{
       }
     }
 
+    &.align-center{
+      .slide_content{
+        text-align: center;
+      }
+    }
+
     .slide{
       padding: 30px 20px;
       margin: 0 auto;
