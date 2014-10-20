@@ -56,4 +56,38 @@ console.log(test);
 \`\`\`
 ```
 
+#### Defining the slides
 
+You can put two lines of `-----` in front of the slide you are going to define. For example if you want to define two slides, the markdown will be as follows.
+
+```md
+-----
+-----
+# Slide1
+
+-----
+-----
+# Slide2
+```
+
+#### Setting options
+- Global options
+The options set at the beginning of the file will be global options.
+```md
+backgroundColor: white
+
+-----
+-----
+# Slide1
+```
+
+- Slide options
+The options set in between two lines of `-----` will be options for the slide.
+```md
+-----
+backgroundColor: white
+align: middle
+-----
+
+# Slide1
+```
