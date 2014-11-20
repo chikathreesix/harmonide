@@ -35,7 +35,7 @@ FileParser.prototype = {
 
     var dataArr = this._data.split(/\-{5,}\n/);
     var i = 0;
-    if(dataArr[0].length == 0){
+    if(dataArr.length % 2 == 1 && dataArr[0].length == 0){
       dataArr.shift();
     }
 
