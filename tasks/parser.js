@@ -71,12 +71,12 @@ FileParser.prototype = {
         return;
       }
 
-      var keyValue = str.split(':');
-      if(keyValue[0] == null || keyValue[1] == null){
+      var match = str.match(/(.*?):(.*)/);
+      if(match[1] == null || match[2] == null){
         throw new Error('parse error at ' + optionStr);
       }
 
-      option[keyValue[0].trim()] = keyValue[1].trim();
+      option[match[1].trim()] = match[2].trim();
     });
   
     return option;
@@ -88,12 +88,11 @@ FileParser.prototype = {
     var option = {};
     while(dataArr.length > 0){
       var str = dataArr.shift();
-      var match = str.match(/.*:.*/);
+      var match = str.match(/(.*?):(.*)/);
       if(!match){
         break;
       }
-      var keyValue = str.split(':');
-      option[keyValue[0].trim()] = keyValue[1].trim();
+      option[match[1].trim()] = match[2].trim();
     }
 
     this._data = dataArr.join('\n');
@@ -108,7 +107,13 @@ FileParser.prototype = {
           style += ' background-color:' + option[prop] + ';';
           break;
         case 'backgroundImage':
-          style += ' background-image:url("assets/' + option[prop] + '");';
+          var url;
+          if(option[prop].match(/^http[s]*:\/\//)){
+            url = option[prop];
+          }else{
+            url = 'assets/' + option[prop];
+          }
+          style += ' background-image:url("' + url + '");';
           break;
         case 'color':
           style += ' color:' + option[prop] + ';';
