@@ -32,7 +32,7 @@ You can also watch the changes and parse them dynamically
 grunt watch
 ```
 
-It will generate html files in the build directory from all markedown files in the drafts directory.
+It will generate html files in the `build` directory from all markedown files in the `drafts` directory.
 In this case, you will get `build/sample.html`.
 Now you can upload `buid` directory to your webserver!
 
