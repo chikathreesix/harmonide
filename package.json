@@ -1,6 +1,6 @@
 {
-  "name": "slidejs",
-  "version": "1.0.0",
+  "name": "harmonide",
+  "version": "0.1.0",
   "description": "",
   "main": "Gruntfile.js",
   "dependencies": {

@@ -56,6 +56,14 @@ html, body{
       }
     }
 
+    &.layout-title{
+      text-align: center;
+      .slide_content{
+        top: 50%;
+        @include transform(translateY(-50%));
+      }
+    }
+
     .slide{
       padding: 30px 20px;
       margin: 0 auto;

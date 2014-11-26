@@ -126,8 +126,13 @@ FileParser.prototype = {
   getClassName: function(option){
     var className = '';
     for(var prop in option){
-      if(prop == 'align'){
-        className += ' align-' + option[prop] + '';
+      switch(prop){
+        case 'align':
+          className += ' align-' + option[prop] + '';
+          break;
+        case 'layout':
+          className += ' layout-' + option[prop] + '';
+          break;
       }
     }
     return className;
