@@ -121,3 +121,30 @@ html, body{
     }
   }
 }
+
+.controls{
+  position: absolute;
+  width: 50px;
+  height: 20px;
+  right: 20px;
+  bottom: 20px;
+
+  .arrow{
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+
+    &.right{
+      right: -12px;
+      border-left: 16px solid white;
+    }
+
+    &.left{
+      left: -12px;
+      border-right: 16px solid white;
+    }
+  }
+}

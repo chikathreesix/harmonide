@@ -225,6 +225,8 @@ System.register("../../src/javascripts/presentation", [], function() {
       this._urlHandler.on('change', this._onChangeURL.bind(this));
       window.addEventListener('keydown', this._onKeyDown.bind(this), false);
       window.addEventListener('resize', this._onResize.bind(this), false);
+      document.querySelector('.controls .arrow.right').addEventListener('click', this.nextPage.bind(this), false);
+      document.querySelector('.controls .arrow.left').addEventListener('click', this.prevPage.bind(this), false);
     },
     _onResize: function(event) {
       this._pages.forEach((function(page) {

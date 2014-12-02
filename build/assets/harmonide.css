@@ -246,3 +246,31 @@ html, body {
   font-size: 18px;
   text-shadow: none;
 }
+
+/* line 125, ../../src/stylesheets/harmonide.scss */
+.controls {
+  position: absolute;
+  width: 50px;
+  height: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+/* line 132, ../../src/stylesheets/harmonide.scss */
+.controls .arrow {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+}
+/* line 140, ../../src/stylesheets/harmonide.scss */
+.controls .arrow.right {
+  right: -12px;
+  border-left: 16px solid white;
+}
+/* line 145, ../../src/stylesheets/harmonide.scss */
+.controls .arrow.left {
+  left: -12px;
+  border-right: 16px solid white;
+}
