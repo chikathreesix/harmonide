@@ -5,8 +5,6 @@ All JavaScript codes are written in ES6 that are compiled by traceur compiler. H
 
 ## Getting started
 
-### Preparation
-
 Install Grunt and modules
 
 ```sh
@@ -37,7 +35,7 @@ In this case, you will get `build/sample.html`.
 Now you can upload `buid` directory to your webserver!
 
 
-### Markedown formats
+## Markedown formats
 
 ```md
 backgroundColor: #000
@@ -62,7 +60,7 @@ console.log(test);
 \`\`\`
 ```
 
-#### Defining the slides
+### Defining the slides
 
 You can put two lines of `-----` in front of the slide you are going to define. For example if you want to define two slides, the markdown will be as follows.
 
@@ -76,7 +74,7 @@ You can put two lines of `-----` in front of the slide you are going to define. 
 # Slide2
 ```
 
-#### Setting options
+### Setting options
 - Global options
 The options set at the beginning of the file will be global options.
 ```md
@@ -97,3 +95,30 @@ align: middle
 
 # Slide1
 ```
+
+## Options
+
+### backgroundColor
+Type: `string`
+
+Background color of the slide. Any type of color string that can be used in css can be specified.
+
+### backgroundImage
+Type: `string`
+
+Background image of the slide. If just a file name is specified, that will find the file in `build/assets`. URL can also be specified.
+
+### align
+Type: `string`
+
+Align in the slide. Can be `middle`, `bottom` or `center`
+
+### color
+Type: `string`
+
+Text color in the slide. Any type of color string that can be used in css can be specified.
+
+### layout
+Type: `string`
+
+Spefies the layout of the slide. Can be `title`.
