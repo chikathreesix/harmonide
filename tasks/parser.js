@@ -33,12 +33,9 @@ FileParser.prototype = {
 
     this._globalOption = this.parseGlobalOption();
 
-    var dataArr = this._data.split(/\-{5,}\n/);
-    var i = 0;
-    if(dataArr.length % 2 == 1 && dataArr[0].length == 0){
-      dataArr.shift();
-    }
+    var dataArr = this.parseContent(this._data);
 
+    var i = 0;
     while(i < dataArr.length - 1){
       var option = this.parseOption(dataArr[i], this._globalOption);
       var mdStr = dataArr[++i];
@@ -54,6 +51,44 @@ FileParser.prototype = {
 
     var template = fs.readFileSync('src/index.html.ejs', 'utf8');
     fs.writeFileSync('build/' + this._fileName + '.html', ejs.render(template, {slides: this._slides}));
+  },
+
+  parseContent: function(data){
+    var arr = [];
+    var currentStr = null;
+    var isCodeBlock = false;
+    var isParsingOption = false;
+
+    data.split('\n').forEach(function(line){
+      // Check separator
+      if(!isCodeBlock && line.match(/\-{5,}/)){
+        isParsingOption = !isParsingOption;
+        arr.push('');
+        return;
+      }
+
+      if(arr.length == 0 && line.length != 0){
+        throw new Error('parse error : ' + line);
+      }
+
+      // Parse option
+      if(isParsingOption){
+        // validate option
+        if(line.match(/[^:]+:.*/)){
+          arr[arr.length - 1] += line + '\n';
+        }else{
+          throw new Error('option parse error');
+        }
+      }
+      // Parse content
+      else{
+        if(line.match(/```/)){
+          isCodeBlock = !isCodeBlock;
+        }
+        arr[arr.length - 1] += line + '\n';
+      }
+    });
+    return arr;
   },
 
   // parse options from a string to an object
@@ -90,6 +125,7 @@ FileParser.prototype = {
       var str = dataArr.shift();
       var match = str.match(/(.*?):(.*)/);
       if(!match){
+        dataArr.unshift(str);
         break;
       }
       option[match[1].trim()] = match[2].trim();
