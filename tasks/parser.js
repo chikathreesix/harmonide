@@ -61,7 +61,7 @@ FileParser.prototype = {
 
     data.split('\n').forEach(function(line){
       // Check separator
-      if(!isCodeBlock && line.match(/\-{5,}/)){
+      if(!isCodeBlock && line.match(/^\-{5,}$/)){
         isParsingOption = !isParsingOption;
         arr.push('');
         return;
@@ -77,7 +77,7 @@ FileParser.prototype = {
         if(line.match(/[^:]+:.*/)){
           arr[arr.length - 1] += line + '\n';
         }else{
-          throw new Error('option parse error');
+          throw new Error('option parse error : ' + line);
         }
       }
       // Parse content
