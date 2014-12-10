@@ -49,7 +49,7 @@ FileParser.prototype = {
       i++;
     }
 
-    var template = fs.readFileSync('src/index.html.ejs', 'utf8');
+    var template = fs.readFileSync('layouts/default.html.ejs', 'utf8');
     fs.writeFileSync('build/' + this._fileName + '.html', ejs.render(template, {slides: this._slides}));
   },
 
@@ -166,8 +166,8 @@ FileParser.prototype = {
         case 'align':
           className += ' align-' + option[prop] + '';
           break;
-        case 'layout':
-          className += ' layout-' + option[prop] + '';
+        case 'type':
+          className += ' type-' + option[prop] + '';
           break;
       }
     }

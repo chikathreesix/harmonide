@@ -118,7 +118,7 @@ Type: `string`
 
 Text color in the slide. Any type of color string that can be used in css can be specified.
 
-### layout
+### type
 Type: `string`
 
-Spefies the layout of the slide. Can be `title`.
+Spefies the type of the slide. Can be `title`.

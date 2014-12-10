@@ -176,11 +176,11 @@ html, body {
   text-align: center;
 }
 /* line 59, ../../src/stylesheets/harmonide.scss */
-.slide_container section.layout-title {
+.slide_container section.type-title {
   text-align: center;
 }
 /* line 61, ../../src/stylesheets/harmonide.scss */
-.slide_container section.layout-title .slide_content {
+.slide_container section.type-title .slide_content {
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -189,12 +189,12 @@ html, body {
   transform: translateY(-50%);
 }
 /* line 65, ../../src/stylesheets/harmonide.scss */
-.slide_container section.layout-title .slide_content h1 {
+.slide_container section.type-title .slide_content h1 {
   font-size: 64px;
   margin-bottom: 15px;
 }
 /* line 70, ../../src/stylesheets/harmonide.scss */
-.slide_container section.layout-title .slide_content h2 {
+.slide_container section.type-title .slide_content h2 {
   font-size: 24px;
 }
 /* line 76, ../../src/stylesheets/harmonide.scss */
