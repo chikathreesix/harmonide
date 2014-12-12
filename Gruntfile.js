@@ -73,5 +73,13 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('default', ['shell', 'compass', 'parse']);
-  grunt.loadTasks('lib');
+  grunt.registerTask('parse', function(){
+    var fs = require('fs');
+    var HarmonideParser = require('lib/parser');
+
+    var files = fs.readdirSync('drafts');
+    files.forEach(function(file){
+      new HarmonideParser(file);
+    });
+  });
 }
