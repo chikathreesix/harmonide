@@ -75,6 +75,6 @@ module.exports = function(grunt){
   grunt.registerTask('default', ['shell', 'compass', 'parse']);
   grunt.registerTask('parse', function(){
     var HarmonideParser = require('lib/parser');
-    HarmonideParser.parseAll();
+    HarmonideParser.parseAll('drafts');
   });
 }
