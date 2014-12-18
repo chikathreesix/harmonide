@@ -4,7 +4,9 @@
   "description": "",
   "main": "Gruntfile.js",
   "dependencies": {
+    "commander": "^2.5.0",
     "ejs": "^1.0.0",
+    "fs-extra": "^0.13.0",
     "grunt": "^0.4.5",
     "grunt-traceur": "^0.2.7",
     "highlight.js": "^8.2.0",
@@ -27,6 +29,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "bin": "./lib/harmonide.js",
+  "author": "Ryo Chikazawa",
+  "license": "MIT"
 }
