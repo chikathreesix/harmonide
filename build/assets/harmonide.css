@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,102 +20,96 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+/* line 116, ../../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
 
 /* line 5, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide .slide {
-  -webkit-transition: -webkit-transform 0.8s;
   -moz-transition: -moz-transform 0.8s;
   -o-transition: -o-transform 0.8s;
+  -webkit-transition: -webkit-transform 0.8s;
   transition: transform 0.8s;
 }
 /* line 9, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide.prev {
-  -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 /* line 12, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide.prev .slide {
-  -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 /* line 17, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide.curr {
-  -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
-  -o-transform: translateX(0);
+  -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 /* line 20, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide.curr .slide {
-  -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
-  -o-transform: translateX(0);
+  -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 /* line 25, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide.next {
-  -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
   transform: translateX(100%);
 }
 /* line 28, ../../src/stylesheets/effects/slide_effect.scss */
 .effect_slide.next .slide {
-  -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
-  -o-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
   transform: translateX(100%);
 }
 
@@ -123,7 +117,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-family: Chunkfive;
   src: url("Chunkfive.otf");
 }
-
 /* line 13, ../../src/stylesheets/harmonide.scss */
 html, body {
   width: 100%;
@@ -156,19 +149,17 @@ html, body {
 /* line 40, ../../src/stylesheets/harmonide.scss */
 .slide_container section.align-middle .slide_content {
   top: 50%;
-  -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 /* line 47, ../../src/stylesheets/harmonide.scss */
 .slide_container section.align-bottom .slide_content {
   top: 100%;
-  -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
   transform: translateY(-100%);
 }
 /* line 54, ../../src/stylesheets/harmonide.scss */
@@ -182,10 +173,9 @@ html, body {
 /* line 61, ../../src/stylesheets/harmonide.scss */
 .slide_container section.type-title .slide_content {
   top: 50%;
-  -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 /* line 65, ../../src/stylesheets/harmonide.scss */
@@ -195,7 +185,7 @@ html, body {
 }
 /* line 70, ../../src/stylesheets/harmonide.scss */
 .slide_container section.type-title .slide_content h2 {
-  font-size: 24px;
+  font-size: 32px;
 }
 /* line 76, ../../src/stylesheets/harmonide.scss */
 .slide_container section .slide {
@@ -203,8 +193,8 @@ html, body {
   margin: 0 auto;
   line-height: 1.5em;
   font-size: 24px;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
 }
@@ -244,10 +234,11 @@ html, body {
   font-family: monospace;
   line-height: 1.5em;
   font-size: 18px;
+  margin: 1em 0;
   text-shadow: none;
 }
 
-/* line 125, ../../src/stylesheets/harmonide.scss */
+/* line 126, ../../src/stylesheets/harmonide.scss */
 .controls {
   position: absolute;
   width: 50px;
@@ -255,7 +246,7 @@ html, body {
   right: 20px;
   bottom: 20px;
 }
-/* line 132, ../../src/stylesheets/harmonide.scss */
+/* line 133, ../../src/stylesheets/harmonide.scss */
 .controls .arrow {
   position: absolute;
   display: block;
@@ -264,12 +255,12 @@ html, body {
   height: 0;
   border: 12px solid transparent;
 }
-/* line 140, ../../src/stylesheets/harmonide.scss */
+/* line 141, ../../src/stylesheets/harmonide.scss */
 .controls .arrow.right {
   right: -12px;
   border-left: 16px solid white;
 }
-/* line 145, ../../src/stylesheets/harmonide.scss */
+/* line 146, ../../src/stylesheets/harmonide.scss */
 .controls .arrow.left {
   left: -12px;
   border-right: 16px solid white;

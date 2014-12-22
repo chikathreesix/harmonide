@@ -68,7 +68,7 @@ html, body{
         }
 
         h2{
-          font-size: 24px;
+          font-size: 32px;
         }
       }
     }
@@ -117,6 +117,7 @@ html, body{
       font-family: monospace;
       line-height: 1.5em;
       font-size: 18px;
+      margin: 1em 0;
       @include text-shadow(none);
     }
   }

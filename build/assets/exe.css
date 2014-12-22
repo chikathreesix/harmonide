@@ -6,7 +6,7 @@
 /* line 5, ../../src/stylesheets/exe.scss */
 .exe-container pre {
   border: 1px solid #ccc;
-  margin: 0;
+  margin: 0 !important;
 }
 
 /* line 11, ../../src/stylesheets/exe.scss */
