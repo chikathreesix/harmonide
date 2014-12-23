@@ -1,8 +1,8 @@
 {
   "name": "harmonide",
   "version": "0.1.0",
-  "description": "",
-  "main": "Gruntfile.js",
+  "description": "HTML slide for JS Hackers",
+  "main": "build/harmonide.js",
   "dependencies": {
     "commander": "^2.5.0",
     "ejs": "^1.0.0",
