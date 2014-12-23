@@ -1,0 +1,141 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link rel="stylesheet" href="assets/harmonide.css">
+  <link rel="stylesheet" href="assets/exe.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/default.min.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+</head>
+<body>
+  <div id="presentation" class="slide_container">
+    
+      <section class=" align-middle type-title" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="harmonide">Harmonide</h1>
+<h2 id="slideshows-for-js-hackers">Slideshows for JS hackers</h2>
+<p><iframe src="http://ghbtns.com/github-btn.html?user=chikathreesix&repo=harmonide&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" style="display: inline-block"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://harmonide.com" data-text="HTML slide for JS Hackers" data-via="chikathreesix">Tweet</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="what-is-harmonide-">What is Harmonide?</h1>
+<ul>
+<li>HTML slideshows</li>
+<li>Generates slides from Markedown</li>
+<li>Runs JS code on the slide (also ES6)</li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="getting-started">Getting started</h1>
+<ul>
+<li>Installation &amp; build</li>
+</ul>
+<pre><code class="hljs sh">$ npm install harmonide
+$ harmonide build your-slide.md</code></pre><ul>
+<li>Watch the changes</li>
+</ul>
+<pre><code class="hljs sh">$ harmonide watch your-slide.md</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="writing-markdown">Writing Markdown</h1>
+<ul>
+<li>To define slides, put 2 lines of <code>-----</code> in front of the slide</li>
+</ul>
+<pre><code class="hljs md">-----
+-----
+# Title1
+## content1
+
+-----
+-----
+# Title2
+- list1
+- list2
+- list3</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="run-javascript-on-the-slides">Run JavaScript on the slides</h1>
+<ul>
+<li>JavaScript code</li>
+</ul>
+<pre><code class="hljs js exe" data-language="js">console.log('Hello Harmonide!');</code></pre><ul>
+<li>ES6 is also available</li>
+</ul>
+<pre><code class="hljs jses6 exe" data-language="jses6">var square = (x) => x * x;
+console.log(square(2));</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="options">Options</h1>
+<ul>
+<li>Options can be specified in between 2 line of <code>-----</code>.</li>
+</ul>
+<pre><code class="hljs md">-----
+type: title
+backgroundColor: black
+-----
+# Title1
+## content1</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class=" type-title" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="let-s-harmonide-">Let&#39;s harmonide!</h1>
+<h2 id="more-documents-on-github-https-github-com-chikathreesix-harmonide-">More documents on <a href="https://github.com/chikathreesix/harmonide">Github</a></h2>
+<p><a href="http://ryochikazawa.com">Ryo Chikazawa</a> <a href="https://twitter.com/chikathreesix">@chikathreesix</a></p>
+
+          </div>
+        </div>
+      </section>
+    
+  </div>
+  <aside class="controls">
+    <span class="arrow right"></span>
+    <span class="arrow left"></span>
+  </aside>
+  <script src="assets/traceur.js"></script>
+  <script src="assets/harmonide.js"></script>
+  <script src="assets/exe.js"></script>
+  <script>
+    exe.init(function(){
+      var codeElems = document.querySelectorAll('pre code');
+      for(var i = 0, len = codeElems.length; i < len; i++){
+        hljs.highlightBlock(codeElems[i]);
+      }
+    });
+  </script>
+</body>
+</html>
