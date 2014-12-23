@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link rel="stylesheet" href="assets/harmonide.css">
+  <link rel="stylesheet" href="assets/exe.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/default.min.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+</head>
+<body>
+  <div id="presentation" class="slide_container">
+    
+      <section class=" align-middle" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="harmonide">Harmonide</h1>
+<p>Slideshows for JS hackers</p>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style=" background-image:url(&quot;assets/samurai.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="ryo-chikazawa">Ryo Chikazawa</h1>
+<ul>
+<li>Work @ <img height="36px" src="assets/viki-logo.png" style="vertical-align:middle"></li>
+<li>@chikathreesix</li>
+<li><a href="http://ryochikazawa.com">ryochikazawa.com</a></li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="harmonide">Harmonide</h1>
+<ul>
+<li>Written in ES6</li>
+<li>Generates slides from Markedown</li>
+<li>Execute JS code(also ES6)</li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+  </div>
+  <script src="assets/traceur.js"></script>
+  <script src="assets/harmonide.js"></script>
+  <script src="assets/exe.js"></script>
+  <script>
+    exe.init(function(){
+      var codeElems = document.querySelectorAll('pre code');
+      for(var i = 0, len = codeElems.length; i < len; i++){
+        hljs.highlightBlock(codeElems[i]);
+      }
+    });
+  </script>
+</body>
+</html>

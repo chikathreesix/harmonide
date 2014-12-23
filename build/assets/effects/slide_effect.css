@@ -1,0 +1,55 @@
+/* line 5, ../../../src/stylesheets/effects/slide_effect.scss */
+.effect_slide .slide {
+  -webkit-transition: -webkit-transform 0.8s;
+  -moz-transition: -moz-transform 0.8s;
+  -o-transition: -o-transform 0.8s;
+  transition: transform 0.8s;
+}
+/* line 9, ../../../src/stylesheets/effects/slide_effect.scss */
+.effect_slide.prev {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+/* line 12, ../../../src/stylesheets/effects/slide_effect.scss */
+.effect_slide.prev .slide {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+/* line 17, ../../../src/stylesheets/effects/slide_effect.scss */
+.effect_slide.curr {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+/* line 20, ../../../src/stylesheets/effects/slide_effect.scss */
+.effect_slide.curr .slide {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+/* line 25, ../../../src/stylesheets/effects/slide_effect.scss */
+.effect_slide.next {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+/* line 28, ../../../src/stylesheets/effects/slide_effect.scss */
+.effect_slide.next .slide {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}

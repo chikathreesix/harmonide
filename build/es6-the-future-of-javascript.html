@@ -1,0 +1,732 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link rel="stylesheet" href="assets/harmonide.css">
+  <link rel="stylesheet" href="assets/exe.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/default.min.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+</head>
+<body>
+  <div id="presentation" class="slide_container">
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/atlantic-sunset.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="es6-the-future-of-javascript">ES6 - The future of JavaScript</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style=" background-image:url(&quot;assets/samurai.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="ryo-chikazawa">Ryo Chikazawa</h1>
+<ul>
+<li>Work @ <img height="36px" src="assets/viki-logo.png" style="vertical-align:middle"></li>
+<li>@chikathreesix</li>
+<li><a href="http://ryochikazawa.com">ryochikazawa.com</a></li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/ryuanim.gif&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="not-ryu">Not Ryu</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/rio2.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="not-rio">Not Rio</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="ryo">Ryo</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="have-you-ever-written-javascript-">Have you ever written JavaScript?</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="have-you-been-annoyed-with-javascript-">Have you been annoyed with JavaScript?</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-center" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <p><img src='assets/y-u-no-meme-generator-javascript-y-u-no-work-9a0ebb.jpg' style='text-align:center'></p>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-center" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <p><img src='assets/Javascript-535.png'></p>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="why-">Why?</h1>
+<ul>
+<li>&quot;this&quot;</li>
+<li>Scope</li>
+<li>lack of APIs</li>
+<li>a lot of writing styles</li>
+<li>so on...</li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="what-is-es6">What is ES6</h1>
+<ul>
+<li>ECMAScript 6</li>
+<li>Standard for JavaScipt</li>
+<li>TC39 in ECMA International</li>
+<li>JavaScript is one of its implementation</li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="compatibility-table">Compatibility table</h1>
+<iframe width="100%" height="300" src="http://kangax.github.io/compat-table/es6/" style="background-color:#fff;"></iframe>
+
+
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="this-is-written-in-es6-">This is written in ES6!</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-center" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <p><img src='assets/You-can-use-467.png'></p>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="what-is-es6">What is ES6</h1>
+<ul>
+<li>Function</li>
+<li>Parameters</li>
+<li>Block scope</li>
+<li>Iteration/Generators</li>
+<li>Classes</li>
+<li>Modules</li>
+<li>Promises</li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/function-keys.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="function">Function</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="before-es6">Before ES6</h1>
+<pre><code class="hljs js exe" data-language="js">var square = function(x){
+  return x * x;
+}
+console.log(square(2));</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="arrow-function">Arrow function</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">var square = x => x * x;
+console.log(square(2));</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="arrow-function">Arrow function</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">var square = (x) => {
+  x * x;
+}
+var key_maker = val => ({key: val});</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="lexical-binding-es3-">Lexical binding(ES3)</h1>
+<pre><code class="hljs js exe" data-language="js">var obj = {
+  init: function(){
+    var self = this;
+    window.addEventListener('click', function(e){
+      console.log(this);
+      self.method();
+    });
+  },
+  method: function(){}
+}
+obj.init();</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="lexical-binding-es5-">Lexical binding(ES5)</h1>
+<pre><code class="hljs js exe" data-language="js">var obj = {
+  init: function(){
+    window.addEventListener('click', function(e){
+      this.method();
+    }.bind(this));
+  },
+  method: function(){}
+}
+obj.init();</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="lexical-binding-es6-">Lexical binding(ES6)</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">var obj = {
+  init: function(){
+    window.addEventListener('click', e => this.method());
+  },
+  method: function(){}
+}</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/parameters.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="parameters">Parameters</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="default-values-es3-">Default values(ES3)</h1>
+<pre><code class="hljs js exe" data-language="js">function add(x, y){
+  y = y || 1;
+  return x + y;
+}
+console.log(add(1));</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="default-values-es6-">Default values(ES6)</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">function add(x, y = 1){
+  return x + y;
+}
+console.log(add(1));</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="rest-parameters">Rest parameters</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">function sum(base, ...rest){
+  rest.forEach(function(arg){
+    base += arg
+  });
+  return base;
+}
+console.log(sum(1, 2, 3, 4, 5));</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="spread-operator">Spread operator</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">function sum(a, b, c, d, e){
+  return a + b + c + d + e;
+}
+var arr = [2, 3, 4, 5];
+console.log(sum(1, ...arr));</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/lego.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="block-scope">Block scope</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="es3">ES3</h1>
+<pre><code class="hljs js exe" data-language="js">if(true){
+  var value = 'value';
+}
+console.log(value);</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="let">Let</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">if(true){
+  let value = 'value';
+}
+console.log(value); //ERROR</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="const">Const</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">(function(){
+  const VALUE = 'value';
+  VALUE = 'value2'; //ERROR
+});</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="block-functions">Block functions</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">if(true){
+  function func(){}
+}
+func(); //ERROR</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/loop.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="iteration-generators">Iteration / Generators</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="for-of-loop">for-of loop</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">var arr = [1, 2, 3];
+for(let val of arr) {
+  console.log(val);
+}</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="generators">Generators</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">function* helloGen(){
+  yield 'Hello';
+  yield 'I am';
+  yield 'Ryo';
+}
+var gen = helloGen();
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="generators">Generators</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">function* helloGen(){
+  yield 'Hello';
+  yield 'I am';
+  yield 'Ryo';
+}
+for(var str of helloGen()){
+  console.log(str);
+}</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/class.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="classes">Classes</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="class">Class</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">class Instrument{
+  constructor(name){
+    this._name = name;
+  }
+  play(){
+    console.log('play: ' + this._name);
+  }
+  set name(name){
+    this._name = name;
+  }
+  get name(){
+    return this._name;
+  }
+}
+var instrument = new Instrument('piano');</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="subclass">Subclass</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">class Guitar extends Instrument{
+  constructor(strings) {
+    super('guitar');
+    this._strings = strings;
+  }
+  play(){
+    console.log(this._strings + 'string ' + this._name);
+    super.play();
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="property-method-assignment">Property method assignment</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">var obj = {
+  value: 'value',
+  toString() {
+    return this.value;
+  }
+};
+console.log(obj.toString());</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/module.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="modules">Modules</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="export-import">export/import</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">// user.js
+export class User{
+  constructor(name){
+    this._name = name;
+  }
+}
+export var name = 'Ryo';
+
+// user_view.js
+import {User, name} from './user';
+var user = new User(name);</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style=" background-image:url(&quot;assets/promise.jpg&quot;);">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="promises">Promises</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="promises">Promises</h1>
+<pre><code class="hljs jses6 exe" data-language="jses6">var timeoutPromise = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100);
+})
+timeoutPromise.then(() => {
+  console.log('done');
+});</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="review">Review</h1>
+<ul>
+<li>Function</li>
+<li>Parameters</li>
+<li>Block scope</li>
+<li>Iteration/Generators</li>
+<li>Classes</li>
+<li>Modules</li>
+<li>Promises</li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="how-to-use-them-today-">How to use them today?</h1>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="traceur-compiler">Traceur Compiler</h1>
+<ul>
+<li><a href="https://github.com/google/traceur-compiler">By Google</a></li>
+<li>transcompile from ES6 to ES5</li>
+<li>requires runtime</li>
+<li><a href="https://google.github.io/traceur-compiler/demo/repl.html">REPL</a></li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="compile-online">Compile online</h1>
+<pre><code class="hljs html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;script src="https://google.github.io/traceur-compiler/bin/traceur.js"&gt;&lt;/script&gt;
+    &lt;script src="https://google.github.io/traceur-compiler/src/bootstrap.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+      traceur.options.experimental = true;
+    &lt;/script&gt;
+    &lt;script type="module"&gt;
+      class Instrument{
+        constructor(name){
+          this._name = name;
+        }
+      }
+      var instrument = new Instrument('piano');
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="compile-offline">Compile offline</h1>
+<p>Install</p>
+<pre><code class="hljs sh">$ npm install traceur -g
+$ traceur --out out.js --script source.js</code></pre><p>HTML</p>
+<pre><code class="hljs html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="bin/traceur-runtime.js"&gt;&lt;/script&gt;
+    &lt;script src="out.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="tools">Tools</h1>
+<ul>
+<li><a href="https://github.com/termi/es6-transpiler">es6-transpiler</a></li>
+<li><a href="https://github.com/esnext/esnext">esnext(Square)</a></li>
+<li><a href="https://github.com/zenparsing/es6now">es6now</a></li>
+<li><a href="https://github.com/toshok/echo-js">EchoJS</a></li>
+<li><a href="https://github.com/google/closure-compiler">Closure Compiler</a></li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="es7-beyond-es6">ES7 - Beyond ES6</h1>
+<ul>
+<li>Object.observe</li>
+<li>Async Function</li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="harmonide">Harmonide</h1>
+<ul>
+<li>HTML presentation framework</li>
+<li>Written in ES6</li>
+<li>Generate from Markdown</li>
+<li><a href="https://github.com/chikathreesix/harmonide">Github</a></li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class="" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="exe-js">exe.js</h1>
+<ul>
+<li>Run codes in &lt;pre&gt;&lt;code&gt;</li>
+<li>Use with hightlighting library</li>
+<li>Embed in your blog</li>
+<li><a href="https://github.com/chikathreesix/exe.js">Github</a></li>
+</ul>
+
+          </div>
+        </div>
+      </section>
+    
+      <section class=" align-middle" style="">
+        <div class="slide">
+          <div class="slide_content">
+            <h1 id="thank-you-">Thank you!</h1>
+
+          </div>
+        </div>
+      </section>
+    
+  </div>
+  <aside class="controls">
+    <span class="arrow right"></span>
+    <span class="arrow left"></span>
+  </aside>
+  <script src="assets/traceur.js"></script>
+  <script src="assets/harmonide.js"></script>
+  <script src="assets/exe.js"></script>
+  <script>
+    exe.init(function(){
+      var codeElems = document.querySelectorAll('pre code');
+      for(var i = 0, len = codeElems.length; i < len; i++){
+        hljs.highlightBlock(codeElems[i]);
+      }
+    });
+  </script>
+</body>
+</html>
