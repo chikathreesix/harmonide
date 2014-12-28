@@ -1,8 +1,16 @@
 {
-  "name": "harmonide",
+  "name": "Harmonide",
   "version": "0.1.0",
   "description": "HTML slide for JS Hackers",
   "main": "build/harmonide.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chikathreesix/harmonide.git"
+  },
+  "keywords": [
+    "slide",
+    "presentation"
+  ],
   "dependencies": {
     "commander": "^2.5.0",
     "ejs": "^1.0.0",
@@ -31,5 +39,6 @@
   },
   "bin": "./lib/harmonide.js",
   "author": "Ryo Chikazawa",
+  "homepage": "http://harmonide.com",
   "license": "MIT"
 }
