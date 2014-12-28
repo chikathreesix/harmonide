@@ -106,6 +106,11 @@ Type: `string`
 
 Spefies the type of the slide. Can be `title`.
 
+### layout
+Type: `string`
+Default: `default`
+
+Name of layout file in `layouts` directory. The file name will be `layouts/layout.html.erb`. Only available in global option.
 
 
 ## Development
