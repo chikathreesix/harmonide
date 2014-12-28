@@ -5,35 +5,18 @@ All JavaScript codes are written in ES6 that are compiled by traceur compiler. H
 
 ## Getting started
 
-Install Grunt and modules
+Installation & build
 
 ```sh
-npm install -g grunt-cli
-npm install
+npm install harmonide
+harmonide build your-slide.md
 ```
 
-Create `drafts` directory and put markdown files
+Watch the changes
 
 ```sh
-mkdir drafts
-vi drafts/sample.md
+harmonide watch your-slide.md
 ```
-
-Generate html from markedown
-
-```sh
-grunt parse
-```
-
-You can also watch the changes and parse them dynamically
-```sh
-grunt watch
-```
-
-It will generate html files in the `build` directory from all markedown files in the `drafts` directory.
-In this case, you will get `build/sample.html`.
-Now you can upload `buid` directory to your webserver!
-
 
 ## Markedown formats
 
@@ -122,3 +105,36 @@ Text color in the slide. Any type of color string that can be used in css can be
 Type: `string`
 
 Spefies the type of the slide. Can be `title`.
+
+
+
+## Development
+
+Install Grunt and modules
+
+```sh
+npm install -g grunt-cli
+npm install
+```
+
+Create `drafts` directory and put markdown files
+
+```sh
+mkdir drafts
+vi drafts/sample.md
+```
+
+Generate html from markedown
+
+```sh
+grunt parse
+```
+
+You can also watch the changes and parse them dynamically
+```sh
+grunt watch
+```
+
+It will generate html files in the `build` directory from all markedown files in the `drafts` directory.
+In this case, you will get `build/sample.html`.
+Now you can upload `buid` directory to your webserver!
