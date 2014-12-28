@@ -1,3 +1,5 @@
+layout: harmonide
+
 -----
 align: middle
 type: title
