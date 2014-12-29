@@ -18,7 +18,7 @@ Watch the changes
 harmonide watch your-slide.md
 ```
 
-## Markedown formats
+## Markdown formats
 
 ```md
 backgroundColor: #000
@@ -58,8 +58,11 @@ You can put two lines of `-----` in front of the slide you are going to define. 
 ```
 
 ### Setting options
+
 - Global options
+
 The options set at the beginning of the file will be global options.
+
 ```md
 backgroundColor: white
 
@@ -69,6 +72,7 @@ backgroundColor: white
 ```
 
 - Slide options
+
 The options set in between two lines of `-----` will be options for the slide.
 ```md
 -----
