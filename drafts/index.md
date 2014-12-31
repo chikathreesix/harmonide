@@ -10,7 +10,7 @@ type: title
 ## HTML slide for JS hackers
 
 <iframe src="http://ghbtns.com/github-btn.html?user=chikathreesix&repo=harmonide&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" style="display: inline-block"></iframe>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://harmonide.com" data-text="HTML slide for JS Hackers" data-via="chikathreesix">Tweet</a>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://harmonide.com/" data-via="chikathreesix">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
