@@ -1,5 +1,5 @@
 {
-  "name": "Harmonide",
+  "name": "harmonide",
   "version": "0.1.0",
   "description": "HTML slide for JS Hackers",
   "main": "build/harmonide.js",
