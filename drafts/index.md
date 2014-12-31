@@ -1,10 +1,12 @@
+title: Harmonide - HTML slide for JS Hackers
+
 -----
 align: middle
 type: title
 -----
 
 # Harmonide
-## Slideshows for JS hackers
+## HTML slide for JS hackers
 
 <iframe src="http://ghbtns.com/github-btn.html?user=chikathreesix&repo=harmonide&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20" style="display: inline-block"></iframe>
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://harmonide.com" data-text="HTML slide for JS Hackers" data-via="chikathreesix">Tweet</a>

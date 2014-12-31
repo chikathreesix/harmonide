@@ -85,6 +85,18 @@ align: middle
 
 ## Options
 
+### title
+Type: `string`
+
+Title for the slide HTML. Only available in global option.
+
+### layout
+Type: `string`
+
+Default: `default`
+
+Name of layout file in `layouts` directory. The file name will be `layouts/layout.html.erb`. Only available in global option.
+
 ### backgroundColor
 Type: `string`
 
@@ -109,12 +121,6 @@ Text color in the slide. Any type of color string that can be used in css can be
 Type: `string`
 
 Spefies the type of the slide. Can be `title`.
-
-### layout
-Type: `string`
-Default: `default`
-
-Name of layout file in `layouts` directory. The file name will be `layouts/layout.html.erb`. Only available in global option.
 
 
 ## Development
