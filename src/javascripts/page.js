@@ -23,13 +23,9 @@ export class Page{
   }
 
   setDefaultSize(){
-    this._originWidth = WIDTH;
-    this._originHeight = this._content.offsetHeight;
-
     this._content.style.width = WIDTH + 'px';
 
-    if(this._originHeight < HEIGHT){
-      this._originHeight = HEIGHT;
+    if(this._content.offsetHeight < HEIGHT){
       this._content.style.height = HEIGHT + 'px';
     }
   }
@@ -52,8 +48,8 @@ export class Page{
   }
 
   resize(width, height){
-    let widthRatio = width / this._originWidth;
-    let heightRatio = height / this._originHeight;
+    let widthRatio = width / WIDTH;
+    let heightRatio = height / this._content.offsetHeight;
     let ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;
 
     this._content.style.zoom = ratio;
