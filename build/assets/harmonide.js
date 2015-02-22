@@ -81,11 +81,8 @@ System.register("../../src/javascripts/page", [], function() {
   };
   ($traceurRuntime.createClass)(Page, {
     setDefaultSize: function() {
-      this._originWidth = WIDTH;
-      this._originHeight = this._content.offsetHeight;
       this._content.style.width = WIDTH + 'px';
-      if (this._originHeight < HEIGHT) {
-        this._originHeight = HEIGHT;
+      if (this._content.offsetHeight < HEIGHT) {
         this._content.style.height = HEIGHT + 'px';
       }
     },
@@ -105,8 +102,8 @@ System.register("../../src/javascripts/page", [], function() {
       }
     },
     resize: function(width, height) {
-      var widthRatio = width / this._originWidth;
-      var heightRatio = height / this._originHeight;
+      var widthRatio = width / WIDTH;
+      var heightRatio = height / this._content.offsetHeight;
       var ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;
       this._content.style.zoom = ratio;
     },
