@@ -1,5 +1,6 @@
 import { SlideEffect } from './effects/slide_effect';
 import { Dom } from './util';
+import { PageSequence } from './page_sequence';
 
 const WIDTH = 680;
 const HEIGHT = 480;
@@ -20,6 +21,17 @@ export class Page{
     }
 
     Dom(this._container).addClass(this._effect.className);
+
+    this._setPageSequence();
+  }
+
+  _setPageSequence() {
+    var sequenceElem = this._container.querySelector('.sequence');
+    if (!sequenceElem) {
+      return;
+    }
+
+    this._pageSequence = new PageSequence(sequenceElem);
   }
 
   setDefaultSize(){
@@ -65,6 +77,14 @@ export class Page{
     this._effect.prev(this, page);
     this.state = 1;
     page.state = 0;
+  }
+
+  proceed(isNext) {
+    if (!this._pageSequence) {
+      return false;
+    }
+
+    return this._pageSequence.proceed(isNext);
   }
 
   get effect(){

@@ -16,6 +16,44 @@ System.register("../../src/javascripts/effects/slide_effect", [], function() {
       return SlideEffect;
     }};
 });
+System.register("../../src/javascripts/page_sequence", [], function() {
+  "use strict";
+  var __moduleName = "../../src/javascripts/page_sequence";
+  var PageSequence = function PageSequence(container) {
+    this._container = container;
+    this._currentIndex = 0;
+    this._childElems = container.children;
+    this.show(this._currentIndex);
+  };
+  ($traceurRuntime.createClass)(PageSequence, {
+    show: function(sequenceIndex) {
+      for (var i = 0,
+          len = this._childElems.length; i < len; i++) {
+        var elem = this._childElems[$traceurRuntime.toProperty(i)];
+        if (sequenceIndex == i) {
+          elem.style.visibility = 'visible';
+        } else {
+          elem.style.visibility = 'hidden';
+        }
+      }
+      this._currentIndex = sequenceIndex;
+    },
+    proceed: function(isNext) {
+      var nextIndex = (isNext) ? this._currentIndex + 1 : this._currentIndex - 1;
+      if (nextIndex >= this._childElems.length || nextIndex <= 0) {
+        return false;
+      }
+      this.show(nextIndex);
+      return true;
+    },
+    get length() {
+      return this._childElems.length;
+    }
+  }, {});
+  return {get PageSequence() {
+      return PageSequence;
+    }};
+});
 System.register("../../src/javascripts/util", [], function() {
   "use strict";
   var __moduleName = "../../src/javascripts/util";
@@ -27,29 +65,29 @@ System.register("../../src/javascripts/util", [], function() {
   };
   ($traceurRuntime.createClass)(DomHandler, {
     addClass: function(name) {
-      var classNames$__2;
+      var classNames$__3;
       var className = this._elem.className;
       if (className && className.length !== 0) {
-        classNames$__2 = className.split(' ');
-        if (classNames$__2.indexOf(name) === -1) {
-          classNames$__2.push(name);
+        classNames$__3 = className.split(' ');
+        if (classNames$__3.indexOf(name) === -1) {
+          classNames$__3.push(name);
         }
-        this._elem.className = classNames$__2.join(' ');
+        this._elem.className = classNames$__3.join(' ');
       } else {
         this._elem.className = name;
       }
     },
     removeClass: function(name) {
-      var classNames$__3,
-          index$__4;
+      var classNames$__4,
+          index$__5;
       var className = this._elem.className;
       if (className) {
-        classNames$__3 = className.split(' ');
-        index$__4 = classNames$__3.indexOf(name);
-        if (index$__4 !== -1) {
-          classNames$__3.splice(index$__4, 1);
+        classNames$__4 = className.split(' ');
+        index$__5 = classNames$__4.indexOf(name);
+        if (index$__5 !== -1) {
+          classNames$__4.splice(index$__5, 1);
         }
-        this._elem.className = classNames$__3.join(' ');
+        this._elem.className = classNames$__4.join(' ');
       }
     },
     get element() {
@@ -65,6 +103,7 @@ System.register("../../src/javascripts/page", [], function() {
   var __moduleName = "../../src/javascripts/page";
   var SlideEffect = System.get("../../src/javascripts/effects/slide_effect").SlideEffect;
   var Dom = System.get("../../src/javascripts/util").Dom;
+  var PageSequence = System.get("../../src/javascripts/page_sequence").PageSequence;
   var WIDTH = 680;
   var HEIGHT = 480;
   var Page = function Page(container, state, options) {
@@ -78,8 +117,16 @@ System.register("../../src/javascripts/page", [], function() {
       this._effect = new SlideEffect(this._container);
     }
     Dom(this._container).addClass(this._effect.className);
+    this._setPageSequence();
   };
   ($traceurRuntime.createClass)(Page, {
+    _setPageSequence: function() {
+      var sequenceElem = this._container.querySelector('.sequence');
+      if (!sequenceElem) {
+        return;
+      }
+      this._pageSequence = new PageSequence(sequenceElem);
+    },
     setDefaultSize: function() {
       this._content.style.width = WIDTH + 'px';
       if (this._content.offsetHeight < HEIGHT) {
@@ -117,6 +164,12 @@ System.register("../../src/javascripts/page", [], function() {
       this.state = 1;
       page.state = 0;
     },
+    proceed: function(isNext) {
+      if (!this._pageSequence) {
+        return false;
+      }
+      return this._pageSequence.proceed(isNext);
+    },
     get effect() {
       return this._effect;
     }
@@ -141,15 +194,15 @@ System.register("../../src/javascripts/dispatcher", [], function() {
       delete this._eventCbs[$traceurRuntime.toProperty(type)];
     },
     trigger: function(type) {
-      var callback$__11;
+      var callback$__13;
       var callbacks = this._eventCbs[$traceurRuntime.toProperty(type)];
       if (!callbacks)
         return;
-      for (var $__9 = callbacks[$traceurRuntime.toProperty(Symbol.iterator)](),
-          $__10; !($__10 = $__9.next()).done; ) {
-        callback$__11 = $__10.value;
+      for (var $__11 = callbacks[$traceurRuntime.toProperty(Symbol.iterator)](),
+          $__12; !($__12 = $__11.next()).done; ) {
+        callback$__13 = $__12.value;
         {
-          callback$__11({
+          callback$__13({
             type: type,
             target: this
           });
@@ -208,14 +261,14 @@ System.register("../../src/javascripts/presentation", [], function() {
   };
   ($traceurRuntime.createClass)(Presentation, {
     _setPages: function(index) {
-      var state$__19;
-      var page$__20;
+      var state$__21;
+      var page$__22;
       var pageElems = this._container.getElementsByTagName('section');
-      for (var i$__17 = 0,
-          len$__18 = pageElems.length; i$__17 < len$__18; i$__17++) {
-        state$__19 = (i$__17 === index) ? 0 : (i$__17 < index) ? -1 : 1;
-        page$__20 = new Page(pageElems[$traceurRuntime.toProperty(i$__17)], state$__19);
-        this._pages.push(page$__20);
+      for (var i$__19 = 0,
+          len$__20 = pageElems.length; i$__19 < len$__20; i$__19++) {
+        state$__21 = (i$__19 === index) ? 0 : (i$__19 < index) ? -1 : 1;
+        page$__22 = new Page(pageElems[$traceurRuntime.toProperty(i$__19)], state$__21);
+        this._pages.push(page$__22);
       }
     },
     _setEvents: function() {
@@ -259,15 +312,21 @@ System.register("../../src/javascripts/presentation", [], function() {
     },
     nextPage: function() {
       var currentIndex = this._urlHandler.pageIndex;
-      if (currentIndex >= this._pages.length - 1)
-        return;
-      this.moveTo(currentIndex + 1);
+      var currentPage = this._pages[$traceurRuntime.toProperty(currentIndex)];
+      if (!currentPage.proceed(true)) {
+        if (currentIndex >= this._pages.length - 1)
+          return;
+        this.moveTo(currentIndex + 1);
+      }
     },
     prevPage: function() {
       var currentIndex = this._urlHandler.pageIndex;
-      if (currentIndex <= 0)
-        return;
-      this.moveTo(currentIndex - 1);
+      var currentPage = this._pages[$traceurRuntime.toProperty(currentIndex)];
+      if (!currentPage.proceed(false)) {
+        if (currentIndex <= 0)
+          return;
+        this.moveTo(currentIndex - 1);
+      }
     }
   }, {});
   return {get Presentation() {

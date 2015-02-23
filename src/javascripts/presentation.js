@@ -74,16 +74,22 @@ export class Presentation{
   }
 
   nextPage(){
-    let currentIndex = this._urlHandler.pageIndex;
+    var currentIndex = this._urlHandler.pageIndex;
+    var currentPage = this._pages[currentIndex];
 
-    if(currentIndex >= this._pages.length - 1) return;
-    this.moveTo(currentIndex + 1);
+    if (!currentPage.proceed(true)) {
+      if(currentIndex >= this._pages.length - 1) return;
+      this.moveTo(currentIndex + 1);
+    }
   }
 
   prevPage(){
-    let currentIndex = this._urlHandler.pageIndex;
+    var currentIndex = this._urlHandler.pageIndex;
+    var currentPage = this._pages[currentIndex];
     
-    if(currentIndex <= 0) return;
-    this.moveTo(currentIndex - 1);
+    if (!currentPage.proceed(false)) {
+      if(currentIndex <= 0) return;
+      this.moveTo(currentIndex - 1);
+    }
   }
 }
