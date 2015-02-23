@@ -23,14 +23,22 @@ System.register("../../src/javascripts/page_sequence", [], function() {
     this._container = container;
     this._currentIndex = 0;
     this._childElems = container.children;
+    this.reset();
     this.show(this._currentIndex);
   };
   ($traceurRuntime.createClass)(PageSequence, {
+    reset: function() {
+      for (var i = 0,
+          len = this._childElems.length; i < len; i++) {
+        var elem = this._childElems[$traceurRuntime.toProperty(i)];
+        elem.style.visibility = 'hidden';
+      }
+    },
     show: function(sequenceIndex) {
       for (var i = 0,
           len = this._childElems.length; i < len; i++) {
         var elem = this._childElems[$traceurRuntime.toProperty(i)];
-        if (sequenceIndex == i) {
+        if (sequenceIndex >= i) {
           elem.style.visibility = 'visible';
         } else {
           elem.style.visibility = 'hidden';
@@ -40,7 +48,7 @@ System.register("../../src/javascripts/page_sequence", [], function() {
     },
     proceed: function(isNext) {
       var nextIndex = (isNext) ? this._currentIndex + 1 : this._currentIndex - 1;
-      if (nextIndex >= this._childElems.length || nextIndex <= 0) {
+      if (nextIndex >= this._childElems.length || nextIndex < 0) {
         return false;
       }
       this.show(nextIndex);
