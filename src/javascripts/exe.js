@@ -122,13 +122,8 @@ class CodeBlock{
     console.error = (e) => {
       this.showError(e);
     }
-    traceur.options.experimental = true;
 
-    this._script = document.createElement('script');
-    this._script.type = 'module';
-    this._script.innerHTML = this._code;
-    document.body.appendChild(this._script);
-    new traceur.WebPageTranscoder(document.location.href).run();
+    babel.run(this._code);
   }
 
   execute(content){

@@ -1,20 +1,25 @@
 module.exports = function(grunt){
   grunt.initConfig({
-    shell: {
-      traceur: {
-        command: [
-          'traceur --experimental --out build/assets/harmonide.js src/javascripts/harmonide.js',
-          'traceur --experimental --out build/assets/exe.js src/javascripts/exe.js'
-        ].join('&&')
-      },
-      traceur_test:{
-        command: 'traceur --experimental --out test/build/util.js test/src/util.js'
+    browserify: {
+      dist: {
+        options: {
+          transform: [
+            ["babelify", {
+              loose: "all"
+            }]
+          ]
+        },
+        files: {
+          "build/assets/harmonide.js": ["src/javascripts/harmonide.js"],
+          "build/assets/exe.js": ["src/javascripts/exe.js"],
+          "test/build/util.js": ["test/src/util.js"],
+        }
       }
     },
     watch: {
       js: {
         files: ['src/javascripts/*.js', 'src/javascripts/effects/*.js'],
-        tasks: ['shell:traceur'],
+        tasks: ['browserify'],
         options: {
           spawn: false,
         }
@@ -28,7 +33,7 @@ module.exports = function(grunt){
       },
       test: {
         files: ['src/javascripts/*.js', 'test/src/*.js'],
-        tasks: ['shell'],
+        tasks: ['browserify'],
         options: {
           spawn: false,
         }
@@ -66,13 +71,13 @@ module.exports = function(grunt){
     }
   })
 
-  grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-browserify');
 
-  grunt.registerTask('default', ['shell', 'compass', 'parse']);
+  grunt.registerTask('default', ['browserify', 'compass', 'parse']);
   grunt.registerTask('parse', function(){
     var HarmonideParser = require('./lib/parser');
     HarmonideParser.parseAll('drafts');
