@@ -1,7 +1,6 @@
 # Harmonide
 
-Harmonide is a HTML presentation framework that supports to convert a markedown file to a html file. Also all JavaScript code blocks in the presentation are runnable.
-All JavaScript codes are written in ES6 that are compiled by traceur compiler. Harmonide is still in a development so it might have bugs and lack of features.
+Harmonide is a HTML5 slide show framework for JS hackers that supports compiling a Markdown file to HTML slides and making all JavaScript code blocks runnable on the slides. All JavaScript codes are written in ES6 that are compiled by Babel.
 
 ## Getting started
 
