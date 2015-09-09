@@ -1,6 +1,6 @@
 {
   "name": "harmonide",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "HTML slide for JS Hackers",
   "main": "build/harmonide.js",
   "repository": {
@@ -24,9 +24,9 @@
     "babelify": "^6.2.0",
     "chai": "^1.9.1",
     "grunt-browserify": "^4.0.0",
-    "grunt-contrib-compass": "^1.0.1",
+    "grunt-contrib-compass": "^1.0.3",
     "grunt-contrib-connect": "^0.8.0",
-    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-mocha": "^0.4.11",
     "mocha": "^1.21.4",
